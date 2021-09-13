@@ -1,5 +1,5 @@
 ##########################################
-#Interaccion
+#interaccion.py
 #
 #Autor: Oscar Esteban Donis Martínez
 #Ultima modificación: 12/09/21
