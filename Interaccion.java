@@ -49,6 +49,7 @@ public class Interaccion {
      * Método que muestra las opciones que estarán disponibles para la personas
      */
     private void menu_inicio() {
+        System.out.println("");
         System.out.println("1. Donativo de comida.");
         System.out.println("2. Donativo de vestimenta.");
         System.out.println("3. Donativo en efectivo.");
@@ -86,7 +87,7 @@ public class Interaccion {
             // cambiar este metodo al que corresponde con las opciones que se presentaran.
             // cantidad_memoria();
             try {
-                seleccion = Byte.parseByte(JOptionPane.showInputDialog("Ingrese la cantidad de memoria que desea"));
+                seleccion = Byte.parseByte(JOptionPane.showInputDialog("Ingrese la cantidad de una de las opciones"));
                 // Modificar el valor el cual se verifica que este en rango (1-5)
                 if ((seleccion < 1) || (seleccion > valor)) {
                     System.out.println(fuera_de_rango());
@@ -99,5 +100,18 @@ public class Interaccion {
         } while (!pasar);
 
         return seleccion;
+    }
+
+    public int cantidad(byte valor) {
+        int respuesta = 0;
+        if (valor == 1) {
+            respuesta = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad del comida que desea donar"));
+        } else if (valor == 2) {
+            respuesta = Integer
+                    .parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de vestimentas que desea donar"));
+        } else if (valor == 3) {
+            respuesta = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de dinero que desea donar."));
+        }
+        return respuesta;
     }
 }

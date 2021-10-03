@@ -8,27 +8,29 @@
  * @version 1.0
  */
 public class Principal {
+    // Cambiar de tipo global a local, en caso de ser necesario.
     private static Interaccion vista = new Interaccion();
+    private static Donativo tipo;
 
     public static void main(String[] args) {
         vista.bienvenida();
         byte opcion = 0;
         // Modificar el valor según sea la modificación futura.
         while (opcion != 4) {
-            opcion = vista.seleccion(Byte.parseByte("3"));
+            opcion = vista.seleccion(Byte.parseByte("4"));
             // Agregar mas opciones segun se considere
             switch (opcion) {
                 case 1:
                     // Donativo de comida.
-
+                    alimentos();
                     break;
                 case 2:
                     // Donativo de vestimenta.
-
+                    vestimenta();
                     break;
                 case 3:
                     // Donaitvo en efectivo.
-
+                    monetario();
                     break;
                 default:
                     // Salir del menu principal.
@@ -36,5 +38,20 @@ public class Principal {
                     break;
             }
         }
+    }
+
+    private static void alimentos() {
+        int cantidad = vista.cantidad(Byte.parseByte("1"));
+        // tipo = new Alimentos(direccion, cantidad);
+    }
+
+    private static void vestimenta() {
+        int cantidad = vista.cantidad(Byte.parseByte("2"));
+        // tipo = new Ropa(direccion, cantidad);
+    }
+
+    private static void monetario() {
+        int cantidad = vista.cantidad(Byte.parseByte("3"));
+        // tipo = new Dinero(direccion, cantidad);
     }
 }
