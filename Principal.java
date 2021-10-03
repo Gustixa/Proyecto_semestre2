@@ -22,15 +22,15 @@ public class Principal {
             switch (opcion) {
                 case 1:
                     // Donativo de comida.
-                    alimentos();
+                    donacion("comida");
                     break;
                 case 2:
                     // Donativo de vestimenta.
-                    vestimenta();
+                    donacion("ropa");
                     break;
                 case 3:
                     // Donativo en efectivo.
-                    monetario();
+                    donacion("dinero");
                     break;
                 default:
                     // Salir del menu principal.
@@ -40,18 +40,18 @@ public class Principal {
         }
     }
 
-    private static void alimentos() {
-        int cantidad = vista.cantidad("comida");
-        // tipo = new Alimentos(direccion, cantidad);
+    private static void donacion(String donacion) {
+        int cantidad = 0;
+        if (donacion.equals("comida")) {
+            cantidad = vista.cantidad(donacion);
+            // tipo = new Alimentos(direccion, cantidad);
+        } else if (donacion.equals("ropa")) {
+            cantidad = vista.cantidad(donacion);
+            // tipo = new Ropa(direccion, cantidad);
+        } else if (donacion.equals("dinero")) {
+            cantidad = vista.cantidad(donacion);
+            // tipo = new Dinero(direccion, cantidad);
+        }
     }
 
-    private static void vestimenta() {
-        int cantidad = vista.cantidad("ropa");
-        // tipo = new Ropa(direccion, cantidad);
-    }
-
-    private static void monetario() {
-        int cantidad = vista.cantidad("dinero");
-        // tipo = new Dinero(direccion, cantidad);
-    }
 }
