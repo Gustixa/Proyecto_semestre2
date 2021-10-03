@@ -1,22 +1,22 @@
 /**********************************
- * Clase Ropa
- * Clase que hereda de Donativo
+ * Clase Ropa Clase que hereda de Donativo
  *********************************/
-public class Ropa extends Donativo{
+public class Ropa extends Donativo {
+    // Cambiar a protected en caso de herencia.
+    private String tipoPrenda;
+    private int paraEdad;
 
-    String tipoPrenda;
-    int paraEdad;
-
-    //Constructor
-    public Ropa(String direccion, int cantidad){
-        super(direccion,cantidad);
+    // Constructor
+    public Ropa(String direccion, int cantidad) {
+        super(direccion, cantidad);
     }
 
-    //Getters
-    public String getTipoPrenda(){
+    // Getters
+    public String getTipoPrenda() {
         return tipoPrenda;
     }
-    public int getParaEdad(){
+
+    public int getParaEdad() {
         return paraEdad;
     }
 }

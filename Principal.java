@@ -14,18 +14,25 @@ public class Principal {
         vista.bienvenida();
         byte opcion = 0;
         // Modificar el valor según sea la modificación futura.
-        while (opcion != 3) {
+        while (opcion != 4) {
             opcion = vista.seleccion(Byte.parseByte("3"));
             // Agregar mas opciones segun se considere
             switch (opcion) {
                 case 1:
-                    // ¿ROPA a donar?
+                    // Donativo de comida.
+
                     break;
                 case 2:
-                    // ¿COMIDA a donar?
+                    // Donativo de vestimenta.
+
+                    break;
+                case 3:
+                    // Donaitvo en efectivo.
+
                     break;
                 default:
-                    // ¿OTRO donativos?
+                    // Salir del menu principal.
+                    vista.despedida();
                     break;
             }
         }

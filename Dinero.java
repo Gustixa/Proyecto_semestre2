@@ -1,21 +1,18 @@
 /*************************************
- * Clase Dinero
- * Clase que hereda de Donativo
+ * Clase Dinero Clase que hereda de Donativo
  ************************************/
 public class Dinero extends Donativo {
+    // Cambiar a protected en caso de herencia.
+    private boolean efectivo;
 
-    boolean efectivo;
-
-    //Constructor
-    public Dinero(String direccion, int cantidad){
-        super(direccion,cantidad);
+    // Constructor
+    public Dinero(String direccion, int cantidad) {
+        super(direccion, cantidad);
     }
 
-    //Getter
-    public boolean getEfectivo(){
+    // Getter
+    public boolean getEfectivo() {
         return efectivo;
     }
-    
-    
-}
 
+}

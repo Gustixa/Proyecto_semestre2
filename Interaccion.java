@@ -49,9 +49,10 @@ public class Interaccion {
      * Método que muestra las opciones que estarán disponibles para la personas
      */
     private void menu_inicio() {
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
+        System.out.println("1. Donativo de comida.");
+        System.out.println("2. Donativo de vestimenta.");
+        System.out.println("3. Donativo en efectivo.");
+        System.out.println("4. Salir");
     }
 
     /**
@@ -77,7 +78,7 @@ public class Interaccion {
         boolean pasar = false;
         do {
             // Modificar los numeros de comparacion, segun las opciones de los metodos
-            if (valor == 3) {
+            if (valor == 4) {
                 menu_inicio();
             } else if (valor == 5) {
                 menu_opciones();
