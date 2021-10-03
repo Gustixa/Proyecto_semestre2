@@ -6,8 +6,9 @@ public class Dinero extends Donativo {
     private boolean efectivo;
 
     // Constructor
-    public Dinero(String direccion, int cantidad) {
+    public Dinero(String direccion, int cantidad, boolean efectivo) {
         super(direccion, cantidad);
+        this.efectivo = efectivo;
     }
 
     // Getter

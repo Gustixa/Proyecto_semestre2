@@ -40,6 +40,10 @@ public class Interaccion {
         return fuera_rango;
     }
 
+    public void exito(){
+        System.out.println("SU DONACION SE AGREGO CON EXITO");
+    }
+
     /**
      * Método que muestra un mensaje de despedida al usuario en cuanto deje el
      * sistema.
@@ -60,16 +64,6 @@ public class Interaccion {
     }
 
     /**
-     * Método que muestra las opciones correspondiente una vez se haya seleccionada
-     * una opcion principal.
-     */
-    private void opciones_alimento() {
-        System.out.println("1. Tipo de alimento.");
-        System.out.println("2. Cantidad de alimento.");
-        System.out.println("3. Regresar.");
-    }
-
-    /**
      * Método que sirve para poder obtener un valor correcto por parte del usuario
      * en base a las opciones proveidas.
      * 
@@ -81,7 +75,7 @@ public class Interaccion {
         do {
             // Modificar los numeros de comparacion, segun las opciones de los metodos
             if (menu.equals("Alimentos")) {
-                opciones_alimento();
+                
             } else if (menu.equals("Principal")) {
                 menu_inicio();
             }
@@ -107,17 +101,25 @@ public class Interaccion {
      * @param valor: byte
      * @return respueta: int
      */
-    public int cantidad(String valor) {
-        int respuesta = 0;
+    public String[] cantidad(String valor) {
+        String[] datos = new String[5];
         if (valor.equals("comida")) {
-            respuesta = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad del comida que desea donar"));
+            datos[0] = JOptionPane.showInputDialog("Ingrese la direccion donde podemos recoger el donativo");
+            datos[1] = JOptionPane.showInputDialog("Ingrese la cantidad de alimento a donar");
+            datos[2] = JOptionPane.showInputDialog("Ingrese el tipo de alimento");
+            datos[3] = JOptionPane.showInputDialog("Ingrese cuantos dias le falta para que caduque el producto");
+            datos[4] = JOptionPane.showInputDialog("Ingrese 'si' si el alimento se necesita refrigerar");
         } else if (valor.equals("ropa")) {
-            respuesta = Integer
-                    .parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de vestimentas que desea donar"));
+            datos[0] = JOptionPane.showInputDialog("Ingrese la direccion donde podes recoger el donativo");
+            datos[1] = JOptionPane.showInputDialog("Ingrese la cantidad de ropa a donar");
+            datos[2] = JOptionPane.showInputDialog("Ingrese el tipo de prenda que se va a donar");
+            datos[3] = JOptionPane.showInputDialog("Ingrese para que edad seria la prenda a donar");
         } else if (valor.equals("dinero")) {
-            respuesta = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de dinero que desea donar."));
+            datos[0] = JOptionPane.showInputDialog("Ingrese la direccion donde podes recoger el donativo");
+            datos[1] = JOptionPane.showInputDialog("Ingrese la cantidad de dinero a donar");
+            datos[2] = JOptionPane.showInputDialog("Ingrese si la donacion es en efectivo o por tranferencia bancaria");
         }
-        return respuesta;
+        return datos;
     }
 
 }

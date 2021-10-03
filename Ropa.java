@@ -7,8 +7,10 @@ public class Ropa extends Donativo {
     private int paraEdad;
 
     // Constructor
-    public Ropa(String direccion, int cantidad) {
+    public Ropa(String direccion, int cantidad, String tipoPrenda, int paraEdad) {
         super(direccion, cantidad);
+        this.tipoPrenda = tipoPrenda;
+        this.paraEdad = paraEdad;
     }
 
     // Getters

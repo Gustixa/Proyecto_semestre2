@@ -10,8 +10,6 @@
 public class Principal {
     // Cambiar de tipo global a local, en caso de ser necesario.
     private static Interaccion vista = new Interaccion();
-    private static Donativo tipo;
-
     public static void main(String[] args) {
         vista.bienvenida();
         byte opcion = 0;
@@ -41,16 +39,21 @@ public class Principal {
     }
 
     private static void donacion(String donacion) {
-        int cantidad = 0;
+        String[] datos;
+        Donativo tipo;
+
         if (donacion.equals("comida")) {
-            cantidad = vista.cantidad(donacion);
-            // tipo = new Alimentos(direccion, cantidad);
+            datos = vista.cantidad(donacion);
+            tipo = new Alimentos(datos[0], Integer.parseInt(datos[1]), datos[2], Integer.parseInt(datos[3]), Boolean.parseBoolean(datos[4]));
+            vista.exito();
         } else if (donacion.equals("ropa")) {
-            cantidad = vista.cantidad(donacion);
-            // tipo = new Ropa(direccion, cantidad);
+            datos = vista.cantidad(donacion);
+            tipo = new Ropa(datos[0], Integer.parseInt(datos[1]), datos[2], Integer.parseInt(datos[3]));
+            vista.exito();
         } else if (donacion.equals("dinero")) {
-            cantidad = vista.cantidad(donacion);
-            // tipo = new Dinero(direccion, cantidad);
+            datos = vista.cantidad(donacion);
+            tipo = new Dinero(datos[0], Integer.parseInt(datos[1]), Boolean.parseBoolean(datos[2]));
+            vista.exito();
         }
     }
 

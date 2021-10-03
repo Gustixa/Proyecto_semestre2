@@ -9,8 +9,11 @@ public class Alimentos extends Donativo {
     private boolean refrigeracion;
 
     // Constructor
-    public Alimentos(String direccion, int cantidad) {
+    public Alimentos(String direccion, int cantidad, String tipo, int caducidad, boolean refrigeracion) {
         super(direccion, cantidad);
+        this.tipo = tipo;
+        this.caducidad = caducidad;
+        this.refrigeracion = refrigeracion;
     }
 
     // Getters
