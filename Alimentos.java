@@ -1,6 +1,10 @@
-/***************************************
+/**
  * Clase Alimento Hereda de Donativo
- **************************************/
+ * 
+ * @author Luis Montenegro
+ * @since
+ * @version 1.0
+ */
 
 public class Alimentos extends Donativo {
     // Cambiar a protected en caso de herencia.

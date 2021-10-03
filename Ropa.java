@@ -1,6 +1,11 @@
-/**********************************
+/**
  * Clase Ropa Clase que hereda de Donativo
- *********************************/
+ * 
+ * @author Luis Montenegro
+ * @since
+ * @version 1.0
+ */
+
 public class Ropa extends Donativo {
     // Cambiar a protected en caso de herencia.
     private String tipoPrenda;
