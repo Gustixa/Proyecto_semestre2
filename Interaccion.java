@@ -15,13 +15,16 @@ public class Interaccion {
      */
     public void bienvenida() {
         System.out.println("BIENVENIDO AL SISTEMA DE DONACIONES");
+        System.out.println("El fin de esta iniciativa es unir los esfuerzos de"
+                + "personas y/u organizaciones que quieran ayudar a personas de pocos recursos, y poder distribuir"
+                + "dicha ayuda a todas las personas que la necesiten.");
     }
 
     /**
      * Método que muestra un mensaje de "ERROR" en cuánto se ingresa un valor de
      * tipo no numérico.
      * 
-     * @return
+     * @return mal_dato: String
      */
     public String mal_dato() {
         String mal_dato = "DEBE INGRESAR UN VALOR QUE SEA NUMERICO";
@@ -60,12 +63,10 @@ public class Interaccion {
      * Método que muestra las opciones correspondiente una vez se haya seleccionada
      * una opcion principal.
      */
-    private void menu_opciones() {
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
+    private void opciones_alimento() {
+        System.out.println("1. Tipo de alimento.");
+        System.out.println("2. Cantidad de alimento.");
+        System.out.println("3. Regresar.");
     }
 
     /**
@@ -74,18 +75,16 @@ public class Interaccion {
      * 
      * @return seleccion: byte
      */
-    public byte seleccion(byte valor) {
+    public byte seleccion(byte valor, String menu) {
         byte seleccion = 0;
         boolean pasar = false;
         do {
             // Modificar los numeros de comparacion, segun las opciones de los metodos
-            if (valor == 4) {
+            if (menu.equals("Alimentos")) {
+                opciones_alimento();
+            } else if (menu.equals("Principal")) {
                 menu_inicio();
-            } else if (valor == 5) {
-                menu_opciones();
             }
-            // cambiar este metodo al que corresponde con las opciones que se presentaran.
-            // cantidad_memoria();
             try {
                 seleccion = Byte.parseByte(JOptionPane.showInputDialog("Ingrese la cantidad de una de las opciones"));
                 // Modificar el valor el cual se verifica que este en rango (1-5)
@@ -102,16 +101,23 @@ public class Interaccion {
         return seleccion;
     }
 
-    public int cantidad(byte valor) {
+    /**
+     * Metodo que pide la cantidad del donativo que desea realizar la persona.
+     * 
+     * @param valor: byte
+     * @return respueta: int
+     */
+    public int cantidad(String valor) {
         int respuesta = 0;
-        if (valor == 1) {
+        if (valor.equals("comida")) {
             respuesta = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad del comida que desea donar"));
-        } else if (valor == 2) {
+        } else if (valor.equals("ropa")) {
             respuesta = Integer
                     .parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de vestimentas que desea donar"));
-        } else if (valor == 3) {
+        } else if (valor.equals("dinero")) {
             respuesta = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de dinero que desea donar."));
         }
         return respuesta;
     }
+
 }

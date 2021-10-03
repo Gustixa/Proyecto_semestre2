@@ -17,7 +17,7 @@ public class Principal {
         byte opcion = 0;
         // Modificar el valor según sea la modificación futura.
         while (opcion != 4) {
-            opcion = vista.seleccion(Byte.parseByte("4"));
+            opcion = vista.seleccion(Byte.parseByte("4"), "Principal");
             // Agregar mas opciones segun se considere
             switch (opcion) {
                 case 1:
@@ -29,7 +29,7 @@ public class Principal {
                     vestimenta();
                     break;
                 case 3:
-                    // Donaitvo en efectivo.
+                    // Donativo en efectivo.
                     monetario();
                     break;
                 default:
@@ -41,17 +41,17 @@ public class Principal {
     }
 
     private static void alimentos() {
-        int cantidad = vista.cantidad(Byte.parseByte("1"));
+        int cantidad = vista.cantidad("comida");
         // tipo = new Alimentos(direccion, cantidad);
     }
 
     private static void vestimenta() {
-        int cantidad = vista.cantidad(Byte.parseByte("2"));
+        int cantidad = vista.cantidad("ropa");
         // tipo = new Ropa(direccion, cantidad);
     }
 
     private static void monetario() {
-        int cantidad = vista.cantidad(Byte.parseByte("3"));
+        int cantidad = vista.cantidad("dinero");
         // tipo = new Dinero(direccion, cantidad);
     }
 }
