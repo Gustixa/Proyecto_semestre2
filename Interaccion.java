@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
  * Clase que funciona para la Interaccion con el usuario, siendo la Vista en la
  * métodologia M-V-C
  * 
- * @author Josúe Argueta y Esteban Donis
+ * @author Josúe Samuel Argueta Hernández.
  * @since
  * @version 1.0
  */
@@ -15,9 +15,9 @@ public class Interaccion {
      */
     public void bienvenida() {
         System.out.println("BIENVENIDO AL SISTEMA DE DONACIONES");
-        System.out.println("El fin de esta iniciativa es unir los esfuerzos de\n "
-                + "personas y/u organizaciones que quieran ayudar a personas de pocos recursos, y poder distribuir\n "
-                + "dicha ayuda a todas las personas que la necesiten.\n");
+        System.out.println("El fin de esta iniciativa es unir los esfuerzos de"
+                + "personas y/u organizaciones que quieran ayudar a personas de pocos recursos, y poder distribuir"
+                + "dicha ayuda a todas las personas que la necesiten.");
     }
 
     /**
@@ -40,7 +40,7 @@ public class Interaccion {
         return fuera_rango;
     }
 
-    public void exito() {
+    public void exito(){
         System.out.println("SU DONACION SE AGREGO CON EXITO");
     }
 
@@ -63,6 +63,7 @@ public class Interaccion {
         System.out.println("4. Salir");
     }
 
+ 
     /**
      * Método que sirve para poder obtener un valor correcto por parte del usuario
      * en base a las opciones proveidas.
@@ -75,7 +76,7 @@ public class Interaccion {
         do {
             // Modificar los numeros de comparacion, segun las opciones de los metodos
             if (menu.equals("Alimentos")) {
-
+                
             } else if (menu.equals("Principal")) {
                 menu_inicio();
             }
@@ -102,22 +103,78 @@ public class Interaccion {
      * @return respueta: int
      */
     public String[] cantidad(String valor) {
+        boolean correcto = false;
+        int selecto = 0;
         String[] datos = new String[5];
         if (valor.equals("comida")) {
-            datos[0] = JOptionPane.showInputDialog("Ingrese la direccion donde podemos recoger el donativo");
-            datos[1] = JOptionPane.showInputDialog("Ingrese la cantidad de alimento a donar");
+            datos[0] = JOptionPane.showInputDialog("Ingrese la direccion donde se puede recoger el donativo");
+            do{
+                try {
+                    selecto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de alimento a donar"));
+                    datos[1] = String.valueOf(selecto);
+                    correcto = true;
+                } 
+                catch (NumberFormatException exc) {
+                    System.out.println(mal_dato());
+                }
+            } while(!correcto);
             datos[2] = JOptionPane.showInputDialog("Ingrese el tipo de alimento");
-            datos[3] = JOptionPane.showInputDialog("Ingrese cuantos dias le falta para que caduque el producto");
+            do{
+                try {
+                    selecto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese cuantos dias le falta para que caduque el producto"));
+                    datos[3] = String.valueOf(selecto);
+                    correcto = true;
+                } 
+                catch (NumberFormatException exc) {
+                    System.out.println(mal_dato());
+                }
+            } while(!correcto);
             datos[4] = JOptionPane.showInputDialog("Ingrese 'si' si el alimento se necesita refrigerar");
+            
+
+
         } else if (valor.equals("ropa")) {
-            datos[0] = JOptionPane.showInputDialog("Ingrese la direccion donde podes recoger el donativo");
-            datos[1] = JOptionPane.showInputDialog("Ingrese la cantidad de ropa a donar");
-            datos[2] = JOptionPane.showInputDialog("Ingrese el tipo de prenda que se va a donar");
+
+            datos[0] = JOptionPane.showInputDialog("Ingrese la direccion donde se puede recoger el donativo");
+            do{
+                try {
+                    selecto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de ropa a donar"));
+                    datos[1] = String.valueOf(selecto);
+                    correcto = true;
+                } 
+                catch (NumberFormatException exc) {
+                    System.out.println(mal_dato());
+                }
+            } while(!correcto);
+
+            do {
+                try {
+
+                    selecto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el tipo de prenda que se va a donar"));
+                    datos[2] = String.valueOf(selecto);
+                    correcto = true;
+                    
+                } catch (NumberFormatException exc) {
+                    System.out.println(mal_dato());
+                }
+            } while (!correcto);
             datos[3] = JOptionPane.showInputDialog("Ingrese para que edad seria la prenda a donar");
+
         } else if (valor.equals("dinero")) {
-            datos[0] = JOptionPane.showInputDialog("Ingrese la direccion donde podes recoger el donativo");
-            datos[1] = JOptionPane.showInputDialog("Ingrese la cantidad de dinero a donar");
+
+            datos[0] = JOptionPane.showInputDialog("Ingrese la direccion donde se puede recoger el donativo");
+            do {
+                try {
+                    selecto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de dinero a donar"));
+                    datos[1] = String.valueOf(selecto);
+                    correcto = true;
+                } 
+                catch (NumberFormatException exc) {
+                    System.out.println(mal_dato());
+                }
+            } while(!correcto);
             datos[2] = JOptionPane.showInputDialog("Ingrese si la donacion es en efectivo o por tranferencia bancaria");
+
         }
         return datos;
     }
