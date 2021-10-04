@@ -15,9 +15,9 @@ public class Interaccion {
      */
     public void bienvenida() {
         System.out.println("BIENVENIDO AL SISTEMA DE DONACIONES");
-        System.out.println("El fin de esta iniciativa es unir los esfuerzos de"
-                + "personas y/u organizaciones que quieran ayudar a personas de pocos recursos, y poder distribuir"
-                + "dicha ayuda a todas las personas que la necesiten.");
+        System.out.println("El fin de esta iniciativa es unir los esfuerzos de\n "
+                + "personas y/u organizaciones que quieran ayudar a personas de pocos recursos, y poder distribuir\n "
+                + "dicha ayuda a todas las personas que la necesiten.\n");
     }
 
     /**
@@ -40,7 +40,7 @@ public class Interaccion {
         return fuera_rango;
     }
 
-    public void exito(){
+    public void exito() {
         System.out.println("SU DONACION SE AGREGO CON EXITO");
     }
 
@@ -75,7 +75,7 @@ public class Interaccion {
         do {
             // Modificar los numeros de comparacion, segun las opciones de los metodos
             if (menu.equals("Alimentos")) {
-                
+
             } else if (menu.equals("Principal")) {
                 menu_inicio();
             }
