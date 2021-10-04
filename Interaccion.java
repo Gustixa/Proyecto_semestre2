@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
  * Clase que funciona para la Interaccion con el usuario, siendo la Vista en la
  * métodologia M-V-C
  * 
- * @author Josúe Samuel Argueta Hernández.
+ * @author Josúe Argueta y Esteban Donis
  * @since
  * @version 1.0
  */
