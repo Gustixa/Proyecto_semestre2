@@ -81,7 +81,7 @@ public class Interaccion {
                 menu_inicio();
             }
             try {
-                seleccion = Byte.parseByte(JOptionPane.showInputDialog("Ingrese la cantidad de una de las opciones"));
+                seleccion = Byte.parseByte(JOptionPane.showInputDialog("Ingrese la opción que desea realizar: "));
                 // Modificar el valor el cual se verifica que este en rango (1-5)
                 if ((seleccion < 1) || (seleccion > valor)) {
                     System.out.println(fuera_de_rango());
@@ -118,6 +118,7 @@ public class Interaccion {
                     System.out.println(mal_dato());
                 }
             } while(!correcto);
+            //agregar si va a ser de importancia como arroz, frijol, sal, azúcar, etc.
             datos[2] = JOptionPane.showInputDialog("Ingrese el tipo de alimento");
             do{
                 try {
@@ -129,6 +130,7 @@ public class Interaccion {
                     System.out.println(mal_dato());
                 }
             } while(!correcto);
+            //podemos quitar esta opción y que no donen alimentos refrigerados
             datos[4] = JOptionPane.showInputDialog("Ingrese 'si' si el alimento se necesita refrigerar");
             
 
@@ -147,22 +149,25 @@ public class Interaccion {
                 }
             } while(!correcto);
 
+            datos[2] = JOptionPane.showInputDialog("Ingrese el tipo de prenda que se va a donar");
+
             do {
                 try {
 
-                    selecto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el tipo de prenda que se va a donar"));
-                    datos[2] = String.valueOf(selecto);
+                    selecto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese para qué edad es la prenda"));
+                    datos[3] = String.valueOf(selecto);
                     correcto = true;
                     
                 } catch (NumberFormatException exc) {
                     System.out.println(mal_dato());
                 }
             } while (!correcto);
-            datos[3] = JOptionPane.showInputDialog("Ingrese para que edad seria la prenda a donar");
+            
 
         } else if (valor.equals("dinero")) {
-
-            datos[0] = JOptionPane.showInputDialog("Ingrese la direccion donde se puede recoger el donativo");
+            //Agregarle si la donación monetaria va a ser transferencia y poner una cuenta a la cual puedan donar
+            //pensaba tipo, el portal de la U con los pagos.
+            datos[0] = JOptionPane.showInputDialog("Cuenta bancaria");
             do {
                 try {
                     selecto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de dinero a donar"));
