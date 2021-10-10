@@ -1,5 +1,5 @@
 /**
- * Clase Dinero Clase que hereda de Donativo
+ * Clase Dinero, su funcion es poder simular un donativo de tipo monetario.
  * 
  * @author Luis Montenegro
  * @since
@@ -12,9 +12,10 @@ public class Dinero extends Donativo {
 
     /**
      * Constructor de la clase Dinero
-     * @param direccion variable que almacena la direccion donde se va a recoger la donacion
-     * @param cantidad variable donde se almacena la cantidad del producto que se va a donar
-     * @param efectivo varible que nos indica si la cantidad sera en efectivo o por transferencia bancaria
+     * 
+     * @param direccion: String
+     * @param cantidad:  int
+     * @param efectivo:  boolean
      */
     public Dinero(String direccion, int cantidad, boolean efectivo) {
         super(direccion, cantidad);
@@ -22,8 +23,9 @@ public class Dinero extends Donativo {
     }
 
     /**
-     * Getter de la variable efectivo
-     * @return
+     * Metodo que devuelve si es un donativo en efectivo o no.
+     * 
+     * @return efectivo: boolean
      */
     public boolean getEfectivo() {
         return efectivo;

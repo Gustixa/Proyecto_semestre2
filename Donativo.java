@@ -1,6 +1,5 @@
 /**
- * Clase Donativo
- * Clase madre que le hereda a Alimentos, Dinero y Ropa
+ * Clase Donativo Clase madre que le hereda a Alimentos, Dinero y Ropa
  * 
  * @author Luis Montenegro
  * @since
@@ -13,27 +12,30 @@ public class Donativo {
 
     /**
      * Constructor de la clase Donativo
-     * @param direccion variable que almacena la direccion donde se va a recoger la donacion
-     * @param cantidad variable donde se almacena la cantidad del producto que se va a donar
+     * 
+     * @param direccion: String
+     * @param cantidad:  int
      */
-    public Donativo(String direccion, int cantidad){
+    public Donativo(String direccion, int cantidad) {
         this.direccion = direccion;
         this.cantidad = cantidad;
     }
 
     /**
-     * Getter de la variable direccion
-     * @return
+     * Metodo que devuelve la direccion.
+     * 
+     * @return direccion: String
      */
-    public String getDireccion(){
+    public String getDireccion() {
         return direccion;
     }
 
     /**
-     * Getter de la variable cantidad
-     * @return
+     * Metodo que devuelve la cantidad del donativo.
+     * 
+     * @return cantidad: int
      */
-    public int getCantidad(){
+    public int getCantidad() {
         return cantidad;
     }
 

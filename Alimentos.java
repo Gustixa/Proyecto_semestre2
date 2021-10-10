@@ -8,17 +8,18 @@
 
 public class Alimentos extends Donativo {
     // Cambiar a protected en caso de herencia.
-    private String tipo;
-    private int caducidad;
-    private boolean refrigeracion;
+    private String tipo; // para el tipo de alimento.
+    private int caducidad;// Tiempo que tiene antes de vencer.
+    private boolean refrigeracion; // Si requiere refrigeracion.
 
     /**
      * Constructor de la clase Alimentos
-     * @param direccion variable que almacena la direccion donde se va a recoger la donacion
-     * @param cantidad variable donde se almacena la cantidad del producto que se va a donar
-     * @param tipo nos indica el tipo de alimento que se va a donar
-     * @param caducidad nos indica la cantidad de dias que le quedan al producto
-     * @param refrigeracion nos indica si el producto requiere de refrigeracion
+     * 
+     * @param direccion:     String
+     * @param cantidad:      int
+     * @param tipo:          String
+     * @param caducidad:     int
+     * @param refrigeracion: boolena
      */
     public Alimentos(String direccion, int cantidad, String tipo, int caducidad, boolean refrigeracion) {
         super(direccion, cantidad);
@@ -28,24 +29,27 @@ public class Alimentos extends Donativo {
     }
 
     /**
-     * Getter de la variable tipo
-     * @return
+     * Metodo que retorna el tipo de alimento.
+     * 
+     * @return tipo: String
      */
     public String getTipo() {
         return tipo;
     }
 
     /**
-     * Getter de la variable caducacion
-     * @return
+     * Metodo que retorna el tiempo de caducidad.
+     * 
+     * @return caducidad: int
      */
     public int getCaducacion() {
         return caducidad;
     }
 
     /**
-     * Getter de la variable refrigeracion
-     * @return
+     * Metodo que retorno si requiere refrigeracion.
+     * 
+     * @return refrigeracoin: boolean
      */
     public boolean getRefrigeracion() {
         return refrigeracion;
