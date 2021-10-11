@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 /**
  * Método que realiza las conexiones necesarias para poder obtener y devolver la
  * inforamción necesario según sea el caso. Esta es la clase Controlador,
@@ -16,32 +18,37 @@ public class Principal {
      * 
      * @param args: String[]
      */
-    public static void main(String[] args) {
-        vista.bienvenida();
+    public static void main(String[] args) throws IOException, InterruptedException {
+
         byte opcion = 0;
         // Modificar el valor según sea la modificación futura.
-        while (opcion != 4) {
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        vista.bienvenida();
+        do {
             opcion = vista.seleccion(Byte.parseByte("4"), "Principal");
             // Agregar mas opciones segun se considere
             switch (opcion) {
                 case 1:
                     // Donativo de comida.
                     donacion("comida");
+                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
                     break;
                 case 2:
                     // Donativo de vestimenta.
                     donacion("ropa");
+                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
                     break;
                 case 3:
                     // Donativo en efectivo.
                     donacion("dinero");
+                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
                     break;
                 default:
                     // Salir del menu principal.
                     vista.despedida();
                     break;
             }
-        }
+        } while (opcion != 4);
     }
 
     /**
