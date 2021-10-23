@@ -64,7 +64,7 @@ public class Archivos {
         File archivo;
         try {
             // ruta archivos
-            archivo = new File("Archivos\\Productos.csv");
+            archivo = new File("Archivos\\Vestuario.csv");
             // Verificar si existe
             if (archivo.exists()) {
                 System.out.println("el arhcivo ya existe");

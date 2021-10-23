@@ -28,25 +28,27 @@ public class Principal {
             opcion = vista.seleccion(Byte.parseByte("4"), "Principal");
             // Agregar mas opciones segun se considere
             switch (opcion) {
-                case 1:
-                    // Donativo de comida.
-                    donacion("comida");
-                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-                    break;
-                case 2:
-                    // Donativo de vestimenta.
-                    donacion("ropa");
-                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-                    break;
-                case 3:
-                    // Donativo en efectivo.
-                    donacion("dinero");
-                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-                    break;
-                default:
-                    // Salir del menu principal.
-                    vista.despedida();
-                    break;
+            case 1:
+                // Donativo de comida.
+                donacion("comida");
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                Archivos creacion = new Archivos();
+                creacion.crear();
+                break;
+            case 2:
+                // Donativo de vestimenta.
+                donacion("ropa");
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                break;
+            case 3:
+                // Donativo en efectivo.
+                donacion("dinero");
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                break;
+            default:
+                // Salir del menu principal.
+                vista.despedida();
+                break;
             }
         } while (opcion != 4);
     }
