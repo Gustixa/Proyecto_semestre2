@@ -63,8 +63,7 @@ public class Principal {
         if (donacion.equals("comida")) {
             datos = vista.cantidad(donacion);// Luego de que se define, se obtienen los datos y se crea un objeto con
                                              // los datos
-            tipo = new Alimentos(datos[0], Integer.parseInt(datos[1]), datos[2], Integer.parseInt(datos[3]),
-                    Boolean.parseBoolean(datos[4]));
+            tipo = new Alimentos(datos[0], Integer.parseInt(datos[1]), datos[2], Integer.parseInt(datos[3]));
             vista.exito();
         } else if (donacion.equals("ropa")) {
             datos = vista.cantidad(donacion);

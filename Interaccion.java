@@ -104,7 +104,7 @@ public class Interaccion {
     public String[] cantidad(String valor) {
         boolean correcto = false;
         int selecto = 0;
-        String[] datos = new String[5];
+        String[] datos = new String[4];
         if (valor.equals("comida")) {
             datos[0] = JOptionPane.showInputDialog("Ingrese la direccion donde se puede recoger el donativo");
             do {
@@ -128,8 +128,6 @@ public class Interaccion {
                     System.out.println(mal_dato());
                 }
             } while (!correcto);
-            // podemos quitar esta opción y que no donen alimentos refrigerados
-            datos[4] = JOptionPane.showInputDialog("Ingrese 'si' si el alimento se necesita refrigerar");
 
         } else if (valor.equals("ropa")) {
 
