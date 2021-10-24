@@ -14,13 +14,12 @@ public class Alimentos extends Donativo {
     /**
      * Constructor de la clase Alimentos
      * 
-     * @param direccion:     String
      * @param cantidad:      int
      * @param tipo:          String
      * @param caducidad:     int
      */
-    public Alimentos(String direccion, int cantidad, String tipo, int caducidad) {
-        super(direccion, cantidad);
+    public Alimentos(int cantidad, String tipo, int caducidad) {
+        super(cantidad);
         this.tipo = tipo;
         this.caducidad = caducidad;
     }

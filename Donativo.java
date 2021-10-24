@@ -7,27 +7,15 @@
  */
 
 public class Donativo {
-    protected String direccion;
     protected int cantidad;
 
     /**
      * Constructor de la clase Donativo
      * 
-     * @param direccion: String
      * @param cantidad:  int
      */
-    public Donativo(String direccion, int cantidad) {
-        this.direccion = direccion;
+    public Donativo(int cantidad) {
         this.cantidad = cantidad;
-    }
-
-    /**
-     * Metodo que devuelve la direccion.
-     * 
-     * @return direccion: String
-     */
-    public String getDireccion() {
-        return direccion;
     }
 
     /**

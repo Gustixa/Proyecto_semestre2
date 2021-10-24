@@ -108,25 +108,24 @@ public class Interaccion {
     public String[] cantidad(String valor) {
         boolean correcto = false;
         int selecto = 0;
-        String[] datos = new String[4];
+        String[] datos = new String[3];
         if (valor.equals("comida")) {
-            datos[0] = JOptionPane.showInputDialog("Ingrese la direccion donde se puede recoger el donativo");
             do {
                 try {
                     selecto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de alimento a donar"));
-                    datos[1] = String.valueOf(selecto);
+                    datos[0] = String.valueOf(selecto);
                     correcto = true;
                 } catch (NumberFormatException exc) {
                     System.out.println(mal_dato());
                 }
             } while (!correcto);
             // agregar si va a ser de importancia como arroz, frijol, sal, azúcar, etc.
-            datos[2] = JOptionPane.showInputDialog("Ingrese el tipo de alimento");
+            datos[1] = JOptionPane.showInputDialog("Ingrese el tipo de alimento");
             do {
                 try {
                     selecto = Integer.parseInt(
                             JOptionPane.showInputDialog("Ingrese cuantos dias le falta para que caduque el producto"));
-                    datos[3] = String.valueOf(selecto);
+                    datos[2] = String.valueOf(selecto);
                     correcto = true;
                 } catch (NumberFormatException exc) {
                     System.out.println(mal_dato());
@@ -134,25 +133,23 @@ public class Interaccion {
             } while (!correcto);
 
         } else if (valor.equals("ropa")) {
-
-            datos[0] = JOptionPane.showInputDialog("Ingrese la direccion donde se puede recoger el donativo");
             do {
                 try {
                     selecto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de ropa a donar"));
-                    datos[1] = String.valueOf(selecto);
+                    datos[0] = String.valueOf(selecto);
                     correcto = true;
                 } catch (NumberFormatException exc) {
                     System.out.println(mal_dato());
                 }
             } while (!correcto);
 
-            datos[2] = JOptionPane.showInputDialog("Ingrese el tipo de prenda que se va a donar");
+            datos[1] = JOptionPane.showInputDialog("Ingrese el tipo de prenda que se va a donar");
 
             do {
                 try {
 
                     selecto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese para qué edad es la prenda"));
-                    datos[3] = String.valueOf(selecto);
+                    datos[2] = String.valueOf(selecto);
                     correcto = true;
 
                 } catch (NumberFormatException exc) {
