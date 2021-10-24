@@ -50,14 +50,18 @@ public class Archivos {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
-        // Mostrar los donativos del archivo de una manera mas amena para el usuario.
-        System.out.println("\n----DONATIVOS NECESITADOS----\n");
-        for (int i = 0; i < donativos.size(); i++) {
-            for (int j = 0; j < 1; j++) {
-                System.out.println((i + 1) + ". " + donativos.get(i).get(0) + " --- " + donativos.get(i).get(1)
-                        + " --- " + donativos.get(i).get(2));
+        if (nombre_archivo.equals("Alimentos")) {
+            // Mostrar los donativos del archivo de una manera mas amena para el usuario.
+            System.out.println("\n----DONATIVOS NECESITADOS----\n");
+            for (int i = 0; i < donativos.size(); i++) {
+                for (int j = 0; j < 1; j++) {
+                    System.out.println((i + 1) + ". " + donativos.get(i).get(j) + " --- " + donativos.get(i).get(1));
+                }
             }
+        } else if (nombre_archivo.equals("Vestuario")) {
+
         }
+
         return donativos.size();
     }
 
@@ -94,7 +98,7 @@ public class Archivos {
      * @param programa_seleccion: int
      * @return palabra: String
      */
-    public String programa(int donativo_seleccion, String detalle) {
+    public String donativo_detalle(int donativo_seleccion, String detalle) {
         String palabra = "";
         donativos = new ArrayList<ArrayList<String>>();
         Path filePath = Paths.get("Archivos\\donativos.csv");

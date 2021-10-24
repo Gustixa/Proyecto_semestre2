@@ -25,17 +25,17 @@ public class Principal {
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         vista.bienvenida();
         do {
-            opcion = vista.seleccion(Byte.parseByte("4"), "Principal");
+            opcion = vista.seleccion(Byte.parseByte("4"), "Menu donativos");
             // Agregar mas opciones segun se considere
             switch (opcion) {
             case 1:
                 // Donativo de comida.
-                donacion("comida");
+                donacion("Alimentos");
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
                 break;
             case 2:
                 // Donativo de vestimenta.
-                donacion("ropa");
+                donacion("Vestuario");
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
                 break;
             case 3:
@@ -56,24 +56,12 @@ public class Principal {
      * 
      * @param donacion: String
      */
-    private static void donacion(String donacion) {
-        String[] datos;
+    private static void donacion(String nombre_archivo) throws IOException, InterruptedException {
+        Archivos donativos = new Archivos();
         Donativo tipo;
-        // Con los ifs verificamos que tipo de donacion se hara
-        if (donacion.equals("comida")) {
-            datos = vista.cantidad(donacion);// Luego de que se define, se obtienen los datos y se crea un objeto con
-                                             // los datos
-            tipo = new Alimentos(datos[0], Integer.parseInt(datos[1]), datos[2], Integer.parseInt(datos[3]));
-            vista.exito();
-        } else if (donacion.equals("ropa")) {
-            datos = vista.cantidad(donacion);
-            tipo = new Ropa(datos[0], Integer.parseInt(datos[1]), datos[2], Integer.parseInt(datos[3]));
-            vista.exito();
-        } else if (donacion.equals("dinero")) {
-            datos = vista.cantidad(donacion);
-            tipo = new Dinero(datos[0], Integer.parseInt(datos[1]), Boolean.parseBoolean(datos[2]));
-            vista.exito();
-        }
+
+        int cantidad_productos = donativos.leer_CSV(nombre_archivo);
+        vista.verificacion_productos(cantidad_productos);
     }
 
 }

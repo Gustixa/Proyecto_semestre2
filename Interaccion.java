@@ -40,6 +40,9 @@ public class Interaccion {
         return fuera_rango;
     }
 
+    /**
+     * 
+     */
     public void exito() {
         System.out.println("SU DONACION SE AGREGO CON EXITO");
     }
@@ -76,7 +79,8 @@ public class Interaccion {
             // Modificar los numeros de comparacion, segun las opciones de los metodos
             if (menu.equals("Alimentos")) {
 
-            } else if (menu.equals("Principal")) {
+                // Se muestran las opciones de donacion que tiene el usuario.
+            } else if (menu.equals("Menu donativos")) {
                 menu_inicio();
             }
             try {
@@ -176,4 +180,15 @@ public class Interaccion {
         return datos;
     }
 
+    /**
+     * Este metodo sirve para verificar que, la persona opte por una de las opciones
+     * que se le presentan y que su selección este en rango a las mismas, es decir,
+     * si se le muestran 3 opciones, no puede pedir menos u más de ello.
+     * 
+     * @param valor: int
+     * @return
+     */
+    public int verificacion_productos(int valor) {
+        return 0; // Modificar al valor que se desea retornar.
+    }
 }
