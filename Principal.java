@@ -31,7 +31,7 @@ public class Principal {
             case 1:
                 // Donativo de comida.
                 donacion("Alimentos");
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                // new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
                 break;
             case 2:
                 // Donativo de vestimenta.

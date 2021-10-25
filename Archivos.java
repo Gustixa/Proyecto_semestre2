@@ -74,7 +74,7 @@ public class Archivos {
      * @exception IOExcpetion, si se llega a interrumpir la posibilidad de localizar
      *                         el archivo.
      */
-    public void crear(String nombre_archivo) {
+    public void crear_archivo(String nombre_archivo) {
         File archivo;
         try {
             // ruta archivos
