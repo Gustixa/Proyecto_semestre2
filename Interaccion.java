@@ -17,7 +17,7 @@ public class Interaccion {
         System.out.println("BIENVENIDO AL SISTEMA DE DONACIONES\n");
         System.out.println("El fin de esta iniciativa es unir los esfuerzos de\n"
                 + "personas y/u organizaciones que quieran ayudar a personas \n"
-                + "de pocos recursos, y poder distribuir dicha ayuda a aquellos\n" + "que la necesiten.\n");
+                + "de pocos recursos y poder distribuir dicha ayuda a aquellos\n" + "que la necesiten.\n");
     }
 
     /**
@@ -27,7 +27,7 @@ public class Interaccion {
      * @return mal_dato: String
      */
     public String mal_dato() {
-        String mal_dato = "DEBE INGRESAR UN VALOR QUE SEA NUMERICO";
+        String mal_dato = "DEBE INGRESAR UN VALOR QUE SEA NUMÉRICO";
         return mal_dato;
     }
 
@@ -44,7 +44,7 @@ public class Interaccion {
      * 
      */
     public void exito() {
-        System.out.println("SU DONACION SE AGREGO CON EXITO");
+        System.out.println("SU DONACION SE AGREGÓ CON ÉXITO");
     }
 
     /**
@@ -52,7 +52,7 @@ public class Interaccion {
      * sistema.
      */
     public void despedida() {
-        System.out.println("MUCHAS GRACIAS POR SU INTERES!");
+        System.out.println("MUCHAS GRACIAS POR SU INTERÉS!");
     }
 
     /**
@@ -62,9 +62,31 @@ public class Interaccion {
         System.out.println("\nSELECCIONE UNA DE LAS OPCIONES DEL MENU\n");
         System.out.println("1. Donativo de comida.");
         System.out.println("2. Donativo de vestimenta.");
-        System.out.println("3. Donativo en efectivo.");
+        System.out.println("3. Donativo monetario.");
         System.out.println("4. Salir");
     }
+    /**
+     * Método para desplegar las opciones a donar para alimentos
+     */
+
+    private void menu_alimentos(){
+        String alimentos_esenciales = "-Frijol\n -Arroz\n -Aceite\n -Harina\n -Sal\n -Azúcar\n -Pasta\n";
+        String otros_alimentos = "-Enlatados\n -Cereales\n -Otros";
+        String advertencia = "POR FAVOR TOMAR EN CUENTA DE NO DONAR LÁCTEOS, ALIMENTOS PERECEDEROS," + "PRODUCTOS DE GRANJA O ENVASADOS EN " + 
+        "ENVASES DE VIDRIO";
+        System.out.println(alimentos_esenciales);
+        System.out.println(otros_alimentos);
+        System.out.println(advertencia);
+    }
+    
+    /**
+     * Método para desplegar productos de aseo ya sea personal o doméstico
+     */
+
+    private void productos_de_aseo(){
+        String productos_aseo = "-Pasta dental\n -Papel higénico\n -Pañales\n -Shampoo\n -Jabón\n -Desodorante\n ";
+    }
+
 
     /**
      * Método que sirve para poder obtener un valor correcto por parte del usuario
@@ -109,47 +131,23 @@ public class Interaccion {
         boolean correcto = false;
         int selecto = 0;
         String[] datos = new String[3];
+        //por si se hace alimento
         if (valor.equals("comida")) {
-            do {
-                try {
-                    selecto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de alimento a donar"));
-                    datos[0] = String.valueOf(selecto);
-                    correcto = true;
-                } catch (NumberFormatException exc) {
-                    System.out.println(mal_dato());
-                }
-            } while (!correcto);
-            // agregar si va a ser de importancia como arroz, frijol, sal, azúcar, etc.
-            datos[1] = JOptionPane.showInputDialog("Ingrese el tipo de alimento");
-            do {
-                try {
-                    selecto = Integer.parseInt(
-                            JOptionPane.showInputDialog("Ingrese cuantos dias le falta para que caduque el producto"));
-                    datos[2] = String.valueOf(selecto);
-                    correcto = true;
-                } catch (NumberFormatException exc) {
-                    System.out.println(mal_dato());
-                }
-            } while (!correcto);
 
+            menu_alimentos();
+            datos[0] = JOptionPane.showInputDialog("Ingrese qué alimento desea donar");
+            
+        //por si es vestimenta
         } else if (valor.equals("ropa")) {
-            do {
-                try {
-                    selecto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de ropa a donar"));
-                    datos[0] = String.valueOf(selecto);
-                    correcto = true;
-                } catch (NumberFormatException exc) {
-                    System.out.println(mal_dato());
-                }
-            } while (!correcto);
 
-            datos[1] = JOptionPane.showInputDialog("Ingrese el tipo de prenda que se va a donar");
+
+            datos[0] = JOptionPane.showInputDialog("Ingrese el tipo de prenda que se va a donar");
 
             do {
                 try {
 
                     selecto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese para qué edad es la prenda"));
-                    datos[2] = String.valueOf(selecto);
+                    datos[1] = String.valueOf(selecto);
                     correcto = true;
 
                 } catch (NumberFormatException exc) {
@@ -157,21 +155,19 @@ public class Interaccion {
                 }
             } while (!correcto);
 
+        //por si se hace monetario
         } else if (valor.equals("dinero")) {
-            // Agregarle si la donación monetaria va a ser transferencia y poner una cuenta
-            // a la cual puedan donar
-            // pensaba tipo, el portal de la U con los pagos.
-            datos[0] = JOptionPane.showInputDialog("Cuenta bancaria");
+            
+            datos[0] = JOptionPane.showInputDialog("Ingrese su tarjeta");
             do {
                 try {
-                    selecto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de dinero a donar"));
+                    selecto = Integer.parseInt(JOptionPane.showInputDialog("Cantidad a donar"));
                     datos[1] = String.valueOf(selecto);
                     correcto = true;
                 } catch (NumberFormatException exc) {
                     System.out.println(mal_dato());
                 }
             } while (!correcto);
-            datos[2] = JOptionPane.showInputDialog("Ingrese si la donacion es en efectivo o por tranferencia bancaria");
 
         }
         return datos;
@@ -180,7 +176,7 @@ public class Interaccion {
     /**
      * Este metodo sirve para verificar que, la persona opte por una de las opciones
      * que se le presentan y que su selección este en rango a las mismas, es decir,
-     * si se le muestran 3 opciones, no puede pedir menos u más de ello.
+     * si se le muestran 3 opciones, no puede pedir menos o más de ello.
      * 
      * @param valor: int
      * @return
