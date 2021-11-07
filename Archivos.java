@@ -98,10 +98,10 @@ public class Archivos {
      * @param programa_seleccion: int
      * @return palabra: String
      */
-    public String donativo_detalle(int donativo_seleccion, String detalle) {
+    public String donativo_detalle(int donativo_seleccion, String detalle, String nombre_arhivo) {
         String palabra = "";
         donativos = new ArrayList<ArrayList<String>>();
-        Path filePath = Paths.get("Archivos\\donativos.csv");
+        Path filePath = Paths.get("Archivos\\" + nombre_arhivo + ".csv");
         try {
             // Tratar de leer el archivo segun su ruta.
             BufferedReader br = Files.newBufferedReader(filePath);
@@ -121,20 +121,20 @@ public class Archivos {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
-        // retornar el programa que seleccionó el usuario.
+        // retornar el producto que seleccionó el usuario.
         for (int i = 0; i < donativos.size(); i++) {
             for (int j = 0; j < 1; j++) {
-                int obtencion = donativo_seleccion - 1; // Variable local para obtener el programa exacto.
+                int obtencion = donativo_seleccion - 1; // Variable local para obtener el producto exacto.
                 if ((obtencion < 0) || (obtencion > donativos.size())) {
                     System.err.println("DEBE INGRESAR UNO DE LOS DONATIVOS DISPONIBLES.");
                 } else {
 
-                    if (detalle == "programa") {
+                    if (detalle == "producto") {
                         palabra = donativos.get(obtencion).get(0);
-                    } else if (detalle == "espacio memoria") {
-                        palabra = donativos.get(obtencion).get(1);
-                    } else if (detalle == "ciclo reloj") {
-                        palabra = donativos.get(obtencion).get(2);
+                        // } else if (detalle == "espacio memoria") {
+                        // palabra = donativos.get(obtencion).get(1);
+                        // } else if (detalle == "ciclo reloj") {
+                        // palabra = donativos.get(obtencion).get(2);
                     }
                 }
             }

@@ -63,29 +63,8 @@ public class Interaccion {
         System.out.println("1. Donativo de comida.");
         System.out.println("2. Donativo de vestimenta.");
         System.out.println("3. Donativo monetario.");
-        System.out.println("4. Salir");
-    }
-
-    /**
-     * Método para desplegar las opciones a donar para alimentos
-     */
-
-    private void menu_alimentos() {
-        String alimentos_esenciales = "-Frijol\n -Arroz\n -Aceite\n -Harina\n -Sal\n -Azúcar\n -Pasta\n";
-        String otros_alimentos = "-Enlatados\n -Cereales\n -Otros";
-        String advertencia = "POR FAVOR TOMAR EN CUENTA DE NO DONAR LÁCTEOS, ALIMENTOS PERECEDEROS,"
-                + "PRODUCTOS DE GRANJA O ENVASADOS EN " + "ENVASES DE VIDRIO";
-        System.out.println(alimentos_esenciales);
-        System.out.println(otros_alimentos);
-        System.out.println(advertencia);
-    }
-
-    /**
-     * Método para desplegar productos de aseo ya sea personal o doméstico
-     */
-
-    private void productos_de_aseo() {
-        String productos_aseo = "- Pasta dental\n -Papel higénico\n -Pañales\n -Shampoo\n -Jabón\n -Desodorante\n ";
+        System.out.println("4. Otro donativo");
+        System.out.println("5. Salir");
     }
 
     /**
@@ -122,54 +101,12 @@ public class Interaccion {
     }
 
     /**
-     * Metodo que pide la cantidad del donativo que desea realizar la persona.
      * 
-     * @param valor: byte
-     * @return datos: String[]
      */
-    public String[] cantidad(String valor) {
-        boolean correcto = false;
-        int selecto = 0;
-        String[] datos = new String[3];
-        // por si se hace alimento
-        if (valor.equals("comida")) {
+    public String[] detalles_donativo() {
+        String[] detalles = new String[4];
 
-            menu_alimentos();
-            datos[0] = JOptionPane.showInputDialog("Ingrese qué alimento desea donar");
-
-            // por si es vestimenta
-        } else if (valor.equals("ropa")) {
-
-            datos[0] = JOptionPane.showInputDialog("Ingrese el tipo de prenda que se va a donar");
-
-            do {
-                try {
-
-                    selecto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese para qué edad es la prenda"));
-                    datos[1] = String.valueOf(selecto);
-                    correcto = true;
-
-                } catch (NumberFormatException exc) {
-                    System.out.println(mal_dato());
-                }
-            } while (!correcto);
-
-            // por si se hace monetario
-        } else if (valor.equals("dinero")) {
-
-            datos[0] = JOptionPane.showInputDialog("Ingrese su tarjeta");
-            do {
-                try {
-                    selecto = Integer.parseInt(JOptionPane.showInputDialog("Cantidad a donar"));
-                    datos[1] = String.valueOf(selecto);
-                    correcto = true;
-                } catch (NumberFormatException exc) {
-                    System.out.println(mal_dato());
-                }
-            } while (!correcto);
-
-        }
-        return datos;
+        return detalles;
     }
 
     /**
@@ -180,7 +117,23 @@ public class Interaccion {
      * @param valor: int
      * @return
      */
-    public int verificacion_productos(int valor) {
-        return 0; // Modificar al valor que se desea retornar.
+    public int verificacion_productos(int rango) {
+        boolean pasar = false;
+        byte valor = 0;
+        int opcion = 0;
+        do {
+            try {
+                opcion = Integer.parseInt(JOptionPane.showInputDialog("Ingrese una de las opciones"));
+                if (opcion < 0 || opcion > valor) {
+                    fuera_de_rango();
+                } else {
+                    pasar = true;
+                }
+            } catch (NumberFormatException e) {
+                mal_dato();
+            }
+
+        } while (!pasar);
+        return opcion;
     }
 }
