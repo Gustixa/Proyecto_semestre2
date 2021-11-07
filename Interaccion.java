@@ -26,18 +26,16 @@ public class Interaccion {
      * 
      * @return mal_dato: String
      */
-    public String mal_dato() {
-        String mal_dato = "DEBE INGRESAR UN VALOR QUE SEA NUMÉRICO";
-        return mal_dato;
+    public void mal_dato() {
+        System.err.println("DEBE INGRESAR UN VALOR QUE SEA NUMÉRICO");
     }
 
     /**
      * Método que muestra un mensaje de "ERROR" en cuánto se ingresa un valor que no
      * esta en las opcioens proveídas.
      */
-    public String fuera_de_rango() {
-        String fuera_rango = "DEBE INGRESAR UN VALOR QUE SE ENCUENTRE EN LAS OPCIONES";
-        return fuera_rango;
+    public void fuera_de_rango() {
+        System.err.println("DEBE INGRESAR UN VALOR QUE SE ENCUENTRE EN LAS OPCIONES");
     }
 
     /**
@@ -68,63 +66,97 @@ public class Interaccion {
     }
 
     /**
-     * Método que sirve para poder obtener un valor correcto por parte del usuario
-     * en base a las opciones proveidas.
-     * 
-     * @return seleccion: byte
+     * Mpetodo que sirve para adquirir los detalles necesarios para poder tomar en
+     * cuenta el producto y crear un objeto del mismo tipo.
      */
-    public byte seleccion(byte valor, String menu) {
-        byte seleccion = 0;
-        boolean pasar = false;
-        do {
-            // Modificar los numeros de comparacion, segun las opciones de los metodos
-            if (menu.equals("Alimentos")) {
+    public String[] detalles_donativo(String producto, String nombre_archivo) {
+        String[] detalles = new String[4];
 
-                // Se muestran las opciones de donacion que tiene el usuario.
-            } else if (menu.equals("Menu donativos")) {
-                menu_inicio();
-            }
-            try {
-                seleccion = Byte.parseByte(JOptionPane.showInputDialog("Ingrese la opción que desea realizar: "));
-                // Modificar el valor el cual se verifica que este en rango (1-5)
-                if ((seleccion < 1) || (seleccion > valor)) {
-                    System.out.println(fuera_de_rango());
-                } else {
-                    pasar = true;
-                }
-            } catch (NumberFormatException exception) {
-                System.err.println(mal_dato());
-            }
-        } while (!pasar);
-
-        return seleccion;
+        if (nombre_archivo.equals("Alimentos")) {
+            detalles[0] = verificacion_datos_especificos("Ingrese la cantidad de libras que va a donar de " + producto,
+                    "Entero");
+            // detalles[1] = verificacion_datos_especificos("Ingrese el tamanio en kilobytes
+            // del archivo", "Entero");
+            // detalles[2] = verificacion_datos_especificos("Ingrese el frame rate del
+            // video", "Entero");
+        } else if (nombre_archivo.equals("Vestuario")) {
+            detalles[0] = verificacion_datos_especificos("Ingrese la cantidad de libras que va a donar de " + producto,
+                    "Entero");
+            // detalles[1] = verificacion_datos_especificos("Ingrese el tamanio en kilobytes
+            // del archivo", "Entero");
+            // detalles[2] = verificacion_datos_especificos("Ingrese el frame rate del
+            // video", "Entero");
+        }
+        return detalles;
     }
 
     /**
+     * Método que sirve para repetir n cantidad de veces, en caso se necesario, la
+     * entrada del producto, en caso de ser numerico.
      * 
+     * @param mensaje: String, mensaje a mostrarle al usuario para realizar una
+     *                 acción.
+     * @param tipo:    String, tipo de dato que se requiere verificar (entero u
+     *                 decimal)
+     * 
+     * @return dato_a_verificar: String, dato ya limpio y aceptable.
      */
-    public String[] detalles_donativo() {
-        String[] detalles = new String[4];
+    private String verificacion_datos_especificos(String mensaje, String tipo) {
+        boolean pasar = false;
+        String dato_a_verificar = "";
+        do {
+            dato_a_verificar = JOptionPane.showInputDialog(mensaje);
+            pasar = verificacion_numeros(dato_a_verificar, tipo);
+        } while (!pasar);
+        return dato_a_verificar;
+    }
 
-        return detalles;
+    /**
+     * Método que sirve para verificar que la entrada del detalle del producto es
+     * meramente numérico, en caso de no serlo, el metodo
+     * verificaciщт_datos_especificos seguirá pidiendo el dato.
+     * 
+     * @param dato: String, entrada del usuario.
+     * @param tipo: String, tipo entero u decimal.
+     * 
+     * @return numero: boolena, verificador si seguir o para el requerimiento
+     *         repetido del dato.
+     */
+    private boolean verificacion_numeros(String dato, String tipo) {
+        boolean numero = false;
+        int comprobacion = 0;
+        float comprobacion_2 = 0.0f;
+        try {
+            if (tipo.equals("Entero")) {
+                comprobacion = Integer.parseInt(dato);
+                numero = true;
+            } else if (tipo.equals("Decimal")) {
+                comprobacion_2 = Float.parseFloat(dato);
+                numero = true;
+            }
+        } catch (NumberFormatException e) {
+            mal_dato();
+        }
+        return numero;
     }
 
     /**
      * Este metodo sirve para verificar que, la persona opte por una de las opciones
      * que se le presentan y que su selección este en rango a las mismas, es decir,
-     * si se le muestran 3 opciones, no puede pedir menos o más de ello.
+     * si se le muestran 3 opciones, no puede pedir menos o más de ello. En este
+     * caso, se enfoca que su selección se base en los productos que se desean y se
+     * donen.
      * 
      * @param valor: int
      * @return
      */
-    public int verificacion_productos(int rango) {
+    public int verificacion_seleccion_productos(int rango) {
         boolean pasar = false;
-        byte valor = 0;
         int opcion = 0;
         do {
             try {
                 opcion = Integer.parseInt(JOptionPane.showInputDialog("Ingrese una de las opciones"));
-                if (opcion < 0 || opcion > valor) {
+                if (opcion < 0 || opcion > rango) {
                     fuera_de_rango();
                 } else {
                     pasar = true;
@@ -135,5 +167,32 @@ public class Interaccion {
 
         } while (!pasar);
         return opcion;
+    }
+
+    /**
+     * Este método sirve para verificar si se seleccionó una de las opciones validas
+     * de un menú que de acciones que puede realizar el usuario.
+     */
+    public byte seleccion_opciones_menu(byte rango, String opciones) {
+        boolean pasar = false;
+        byte opcion = 0;
+        do {
+            // En caso de haber mas menu, agragar mas condicionales.
+            if (opciones.equals("Menu principal")) {
+                menu_inicio();
+            }
+            try {
+                opcion = Byte.parseByte(JOptionPane.showInputDialog("Ingrese una de las opciones"));
+                if (opcion < 0 || opcion > rango) {
+                    fuera_de_rango();
+                } else {
+                    pasar = true;
+                }
+            } catch (NumberFormatException e) {
+                mal_dato();
+            }
+
+        } while (!pasar);
+        return 0;
     }
 }
