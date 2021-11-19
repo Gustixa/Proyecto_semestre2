@@ -25,7 +25,7 @@ public class Principal {
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         vista.bienvenida();
         do {
-            opcion = vista.seleccion_opciones_menu(Byte.parseByte("4"), "Menu donativos");
+            opcion = vista.seleccion_opciones_menu("Menu donativos");
             // Agregar mas opciones segun se considere
             switch (opcion) {
             case 1:
@@ -56,10 +56,8 @@ public class Principal {
      */
     private static void donacion(String nombre_archivo) throws IOException, InterruptedException {
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-
-        Donativo tipo;
+        // Obtener los productos que se requiere y sean donador
         if (nombre_archivo.equals("Alimentos")) {
-            // Obtener los productos que se requiere y sean donador
             seleccion_producto(nombre_archivo);
         } else if (nombre_archivo.equals("Vestuario")) {
             seleccion_producto(nombre_archivo);
@@ -69,12 +67,12 @@ public class Principal {
     private static void seleccion_producto(String nombre_archivo) {
         Archivos donativos = new Archivos();
         String[] detalles_producto = new String[4];
+        Donativo tipo;
 
         int cantidad_productos = donativos.leer_CSV(nombre_archivo); // Retorna la cantidad de los productos
         // verificar si seleccion esta en rango
         int donativo_seleccion = vista.verificacion_seleccion_productos(cantidad_productos);
         String producto = donativos.donativo_detalle(donativo_seleccion, "producto", nombre_archivo);// obtener producto
         detalles_producto = vista.detalles_donativo(producto, nombre_archivo);
-
     }
 }

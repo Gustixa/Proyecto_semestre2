@@ -56,13 +56,13 @@ public class Interaccion {
     /**
      * Método que muestra las opciones que estarán disponibles para la personas
      */
-    private void menu_inicio() {
-        System.out.println("\nSELECCIONE UNA DE LAS OPCIONES DEL MENU\n");
-        System.out.println("1. Donativo de comida.");
-        System.out.println("2. Donativo de vestimenta.");
-        System.out.println("3. Donativo monetario.");
-        System.out.println("4. Otro donativo");
-        System.out.println("5. Salir");
+    private int menu_inicio() {
+        String[] opciones_principales = { "\nSELECCIONE UNA DE LAS OPCIONES DEL MENU\n", "Donativo de comida.",
+                "Donativo de vestimenta.", "3. Donativo monetario.", "Otro donativo", "Salir" };
+        for (int i = 0; i < opciones_principales.length; i++) {
+            System.out.println((i + 1) + "." + opciones_principales[i]);
+        }
+        return opciones_principales.length;
     }
 
     /**
@@ -173,17 +173,18 @@ public class Interaccion {
      * Este método sirve para verificar si se seleccionó una de las opciones validas
      * de un menú que de acciones que puede realizar el usuario.
      */
-    public byte seleccion_opciones_menu(byte rango, String opciones) {
+    public byte seleccion_opciones_menu(String opciones) {
         boolean pasar = false;
         byte opcion = 0;
+        int opciones_rango = 0;
         do {
             // En caso de haber mas menu, agragar mas condicionales.
-            if (opciones.equals("Menu principal")) {
-                menu_inicio();
+            if (opciones.equals("Menu donativos")) {
+                opciones_rango = menu_inicio();
             }
             try {
                 opcion = Byte.parseByte(JOptionPane.showInputDialog("Ingrese una de las opciones"));
-                if (opcion < 0 || opcion > rango) {
+                if (opcion < 0 || opcion > opciones_rango) {
                     fuera_de_rango();
                 } else {
                     pasar = true;
