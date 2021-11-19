@@ -55,7 +55,7 @@ public class Archivos {
             System.out.println("\n----DONATIVOS NECESITADOS----\n");
             for (int i = 0; i < donativos.size(); i++) {
                 for (int j = 0; j < 1; j++) {
-                    System.out.println((i + 1) + ". " + donativos.get(i).get(j) + " --- " + donativos.get(i).get(1));
+                    System.out.println((i + 1) + ". " + donativos.get(i).get(0) + " --- " + donativos.get(i).get(1));
                 }
             }
         } else if (nombre_archivo.equals("Vestuario")) {

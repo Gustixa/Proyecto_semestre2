@@ -57,8 +57,9 @@ public class Interaccion {
      * Método que muestra las opciones que estarán disponibles para la personas
      */
     private int menu_inicio() {
-        String[] opciones_principales = { "\nSELECCIONE UNA DE LAS OPCIONES DEL MENU\n", "Donativo de comida.",
-                "Donativo de vestimenta.", "3. Donativo monetario.", "Otro donativo", "Salir" };
+        String[] opciones_principales = { "Donativo de comida.", "Donativo de vestimenta.", "Donativo monetario.",
+                "Otro donativo", "Salir" };
+        System.out.println("\nSELECCIONE UNA DE LAS OPCIONES DEL MENU\n");
         for (int i = 0; i < opciones_principales.length; i++) {
             System.out.println((i + 1) + "." + opciones_principales[i]);
         }
@@ -194,6 +195,6 @@ public class Interaccion {
             }
 
         } while (!pasar);
-        return 0;
+        return opcion;
     }
 }
