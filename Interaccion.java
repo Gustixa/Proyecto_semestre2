@@ -74,20 +74,14 @@ public class Interaccion {
         String[] detalles = new String[4];
 
         if (nombre_archivo.equals("Alimentos")) {
-            detalles[0] = verificacion_datos_especificos("Ingrese la cantidad de libras que va a donar de " + producto,
-                    "Entero");
-            // detalles[1] = verificacion_datos_especificos("Ingrese el tamanio en kilobytes
-            // del archivo", "Entero");
-            // detalles[2] = verificacion_datos_especificos("Ingrese el frame rate del
-            // video", "Entero");
+            detalles[0] = verificacion_datos_especificos(
+                    "Ingrese la cantidad de libras/litros que va a donar de " + producto, "Entero");
+
         } else if (nombre_archivo.equals("Vestuario")) {
-            detalles[0] = verificacion_datos_especificos("Ingrese la cantidad de libras que va a donar de " + producto,
+            detalles[0] = verificacion_datos_especificos("Ingrese la cantidad de " + producto + " que va a donar de ",
                     "Entero");
-            // detalles[1] = verificacion_datos_especificos("Ingrese el tamanio en kilobytes
-            // del archivo", "Entero");
-            // detalles[2] = verificacion_datos_especificos("Ingrese el frame rate del
-            // video", "Entero");
         }
+
         return detalles;
     }
 

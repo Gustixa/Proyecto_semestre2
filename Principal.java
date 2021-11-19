@@ -22,6 +22,7 @@ public class Principal {
 
         byte opcion = 0;
         // Modificar el valor según sea la modificación futura.
+        mensaje_de_carga("Procesando");
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         vista.bienvenida();
         do {
@@ -79,6 +80,24 @@ public class Principal {
         int donativo_seleccion = vista.verificacion_seleccion_productos(cantidad_productos);
         String producto = donativos.donativo_detalle(donativo_seleccion, "producto", nombre_archivo);// obtener producto
         detalles_producto = vista.detalles_donativo(producto, nombre_archivo);
+    }
+
+    /**
+     * 
+     * @param mensaje
+     * @throws IOException
+     * @throws InterruptedException
+     */
+    private static void mensaje_de_carga(String mensaje) throws IOException, InterruptedException {
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        System.out.println(mensaje + ".");
+        esperar(1000);
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        System.out.println(mensaje + "..");
+        esperar(1000);
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        System.out.println(mensaje + "...");
+        esperar(1000);
     }
 
     /**

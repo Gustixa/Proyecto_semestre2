@@ -59,7 +59,10 @@ public class Archivos {
                 }
             }
         } else if (nombre_archivo.equals("Vestuario")) {
-
+            System.out.println("\n----DONATIVOS NECESITADOS----\n");
+            for (int i = 0; i < donativos.size(); i++) {
+                System.out.println((i + 1) + ". " + donativos.get(i).get(0));
+            }
         }
 
         return donativos.size();
