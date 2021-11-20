@@ -76,10 +76,13 @@ public class Interaccion {
         if (nombre_archivo.equals("Alimentos")) {
             detalles[0] = verificacion_datos_especificos(
                     "Ingrese la cantidad de libras/litros que va a donar de " + producto, "Entero");
+            detalles[1] = producto;
+            detalles[3] = "Alimentos";
 
         } else if (nombre_archivo.equals("Vestuario")) {
             detalles[0] = verificacion_datos_especificos("Ingrese la cantidad de " + producto + " que va a donar de ",
                     "Entero");
+            detalles[3] = "Ropa";
         }
 
         return detalles;

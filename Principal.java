@@ -69,6 +69,10 @@ public class Principal {
     /**
      * 
      * @param nombre_archivo
+     * @see vista.detalles_donativo, para poder entender como es que funciona la
+     *      obtencion de los datos de cada producto.
+     * @see donativo_detalle, sirve para poder obtener el producto puntual que se ha
+     *      donado.
      */
     private static void seleccion_producto(String nombre_archivo) {
         Archivos donativos = new Archivos();
@@ -79,10 +83,18 @@ public class Principal {
         // verificar si seleccion esta en rango
         int donativo_seleccion = vista.verificacion_seleccion_productos(cantidad_productos);
         String producto = donativos.donativo_detalle(donativo_seleccion, "producto", nombre_archivo);// obtener producto
+        // Obtener los detalles del producto, en la comida, seria la cantidad.
         detalles_producto = vista.detalles_donativo(producto, nombre_archivo);
+        // Creacion del Objeto que se esta donando.
+        if (detalles_producto[3].equals("Alimentos")) {
+            tipo_donativo = new Alimentos(detalles_producto);
+        } else if (detalles_producto[3].equals("Ropa")) {
+
+        }
     }
 
     /**
+     * Método extra, que sirve para dar un inicio del sistema.
      * 
      * @param mensaje
      * @throws IOException

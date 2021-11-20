@@ -9,19 +9,18 @@
 public class Alimentos extends Donativo {
     // Cambiar a protected en caso de herencia.
     private String tipo; // para el tipo de alimento.
-    private int caducidad;// Tiempo que tiene antes de vencer.
 
     /**
      * Constructor de la clase Alimentos
      * 
-     * @param cantidad:      int
-     * @param tipo:          String
-     * @param caducidad:     int
+     * @param cantidad:  int
+     * @param tipo:      String
+     * @param caducidad: int
      */
-    public Alimentos(int cantidad, String tipo, int caducidad) {
-        super(cantidad);
-        this.tipo = tipo;
-        this.caducidad = caducidad;
+    public Alimentos(String[] detalles_producto) {
+        super(Integer.parseInt(detalles_producto[0]));
+        this.tipo = detalles_producto[1];
+
     }
 
     /**
@@ -34,11 +33,14 @@ public class Alimentos extends Donativo {
     }
 
     /**
-     * Metodo que retorna el tiempo de caducidad.
      * 
-     * @return caducidad: int
      */
-    public int getCaducacion() {
-        return caducidad;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
+
+    /**
+     * 
+     */
+
 }

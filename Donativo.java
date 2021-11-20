@@ -6,13 +6,31 @@
  * @version 1.0
  */
 
-public class Donativo {
+public class Donativo implements Envio, Entrega {
     protected int cantidad;
+
+    /**
+     * Implementación del método envio producto, de la interfaz Envio. Devuelve un
+     * toString.
+     */
+    @Override
+    public String envio_producto() {
+        return "";
+    }
+
+    /**
+     * Implementación del método entrega producto, de la interfazz Entrega. Devuelve
+     * un toString
+     */
+    @Override
+    public String entrega_producto() {
+        return "";
+    }
 
     /**
      * Constructor de la clase Donativo
      * 
-     * @param cantidad:  int
+     * @param cantidad: int
      */
     public Donativo(int cantidad) {
         this.cantidad = cantidad;
@@ -25,6 +43,14 @@ public class Donativo {
      */
     public int getCantidad() {
         return cantidad;
+    }
+
+    /**
+     * 
+     * @param cantidad
+     */
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
 }
