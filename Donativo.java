@@ -7,6 +7,7 @@
  */
 
 public class Donativo implements Envio, Entrega {
+    protected int zonaADejar;
     protected int cantidad;
 
     /**
