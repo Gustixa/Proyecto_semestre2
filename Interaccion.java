@@ -67,7 +67,7 @@ public class Interaccion {
     }
 
     /**
-     * Mpetodo que sirve para adquirir los detalles necesarios para poder tomar en
+     * Metodo que sirve para adquirir los detalles necesarios para poder tomar en
      * cuenta el producto y crear un objeto del mismo tipo.
      */
     public String[] detalles_donativo(String producto, String nombre_archivo) {
@@ -77,12 +77,31 @@ public class Interaccion {
             detalles[0] = verificacion_datos_especificos(
                     "Ingrese la cantidad de libras/litros que va a donar de " + producto, "Entero");
             detalles[1] = producto;
+            boolean paso = false;
+            while (paso == false){
+                try {
+                    System.out.println("Recibimos en las zonas 1, 2, 6, 10 y 15");
+                    String opcionString = JOptionPane.showInputDialog("Ingrese a que zona va a ir a dejar la donacion");
+                    int opcion = Byte.parseByte(opcionString);
+                    if (opcion == 1 || opcion == 2 || opcion == 6 || opcion == 10 || opcion == 15){
+                        paso = true;
+                        detalles[2] = opcionString;
+                    }
+                    else {
+                        System.out.println("Ingrese un valor de los proveidos anteriormente");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Ingrese un valor numerico");
+                }
+            }
             detalles[3] = "Alimentos";
 
         } else if (nombre_archivo.equals("Vestuario")) {
             detalles[0] = verificacion_datos_especificos("Ingrese la cantidad de " + producto + " que va a donar de ",
                     "Entero");
             detalles[3] = "Ropa";
+        } else if (nombre_archivo.equals("")){
+
         }
 
         return detalles;

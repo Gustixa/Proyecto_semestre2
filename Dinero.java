@@ -16,8 +16,8 @@ public class Dinero extends Donativo {
      * @param cantidad:  int
      * @param efectivo:  boolean
      */
-    public Dinero(int cantidad, boolean efectivo) {
-        super(cantidad);
+    public Dinero(int cantidad, boolean efectivo, int zona) {
+        super(cantidad, zona);
         this.efectivo = efectivo;
     }
 

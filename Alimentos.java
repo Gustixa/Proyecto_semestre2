@@ -18,7 +18,7 @@ public class Alimentos extends Donativo {
      * @param caducidad: int
      */
     public Alimentos(String[] detalles_producto) {
-        super(Integer.parseInt(detalles_producto[0]));
+        super(Integer.parseInt(detalles_producto[0]), Integer.parseInt(detalles_producto[2]));
         this.tipo = detalles_producto[1];
 
     }
