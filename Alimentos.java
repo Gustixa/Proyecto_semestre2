@@ -1,7 +1,7 @@
 /**
  * Clase Alimento Hereda de Donativo
  * 
- * @author Luis Montenegro
+ * @author Luis Montenegro, Samuel Argueta.
  * @since
  * @version 1.0
  */
@@ -18,7 +18,7 @@ public class Alimentos extends Donativo {
      * @param caducidad: int
      */
     public Alimentos(String[] detalles_producto) {
-        super(Integer.parseInt(detalles_producto[0]), Integer.parseInt(detalles_producto[2]));
+        super(detalles_producto[0], detalles_producto[2]);
         this.tipo = detalles_producto[1];
     }
 
@@ -32,14 +32,21 @@ public class Alimentos extends Donativo {
     }
 
     /**
-     * 
+     * Método que modifica el tipo de daontivo.
      */
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
     /**
-     * 
+     * Método que alamacena todo la información en un archivo.
      */
+    private void guardar() {
+        String[] data = new String[3];
+        data[0] = tipo;
+        data[1] = cantidad;
+        data[2] = zonaADejar;
+        new Archivos().almacenar_data("Doanciones", data);
+    }
 
 }

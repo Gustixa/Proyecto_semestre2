@@ -1,7 +1,7 @@
 /**
  * Clase Ropa Clase que hereda de Donativo
  * 
- * @author Luis Montenegro
+ * @author Luis Montenegro, Samuel Argueta
  * @since
  * @version 1.0
  */
@@ -9,7 +9,7 @@
 public class Ropa extends Donativo {
     // Cambiar a protected en caso de herencia.
     private String tipoPrenda;
-    private int paraEdad;
+    private String paraEdad;
 
     /**
      * Constructor de la clase Ropa
@@ -23,9 +23,9 @@ public class Ropa extends Donativo {
      * @param paraEdad   nos indica para que edad es la prenda donada
      */
     public Ropa(String[] detalles_producto) {
-        super(Integer.parseInt(detalles_producto[0]), Integer.parseInt(detalles_producto[2]));
+        super(detalles_producto[0], detalles_producto[2]);
         this.tipoPrenda = detalles_producto[1];
-        this.paraEdad = Integer.parseInt(detalles_producto[4]);
+        this.paraEdad = detalles_producto[4];
     }
 
     /**
@@ -42,12 +42,19 @@ public class Ropa extends Donativo {
      * 
      * @return
      */
-    public int getParaEdad() {
+    public String getParaEdad() {
         return paraEdad;
     }
 
-    private void guaradar_info() {
-        Archivos guardar = new Archivos();
-
+    /**
+     * Método que alamacena todo la información en un archivo.
+     */
+    private void guardar() {
+        String[] data = new String[4];
+        data[0] = tipoPrenda;
+        data[1] = cantidad;
+        data[2] = zonaADejar;
+        data[3] = paraEdad;
+        new Archivos().almacenar_data("Doanciones", data);
     }
 }

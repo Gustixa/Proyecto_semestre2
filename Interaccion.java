@@ -67,6 +67,7 @@ public class Interaccion {
     }
 
     /**
+     * Método que muestra las zonas disponibles a dejar el producto.
      * 
      * @return
      */
@@ -80,6 +81,7 @@ public class Interaccion {
     }
 
     /**
+     * Método que muestra los rangos de edades para la ropa
      * 
      * @return
      */

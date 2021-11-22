@@ -5,6 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 
 /**
  * Clase que sirve para poder tener registro de los donativos que se requieren
@@ -143,6 +145,19 @@ public class Archivos {
             }
         }
         return palabra;
+    }
+
+    /**
+     * Método para almacenar la información de los donativos recibidos.
+     */
+    public void almacenar_data(String nombre_archivo, String[] data) {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(nombre_archivo + ".csv"));
+            bw.write(data + "\n");
+            bw.close();
+        } catch (IOException e) {
+            System.err.println("No se pudo abrir el arhcivo. " + e.getMessage());
+        }
 
     }
 

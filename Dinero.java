@@ -13,11 +13,11 @@ public class Dinero extends Donativo {
     /**
      * Constructor de la clase Dinero
      * 
-     * @param cantidad:  int
-     * @param efectivo:  boolean
+     * @param cantidad: int
+     * @param efectivo: boolean
      */
     public Dinero(String[] detalles_producto) {
-        super(Integer.parseInt(detalles_producto[0]), Integer.parseInt(detalles_producto[2]));
+        super(detalles_producto[0], detalles_producto[2]);
         this.efectivo = Boolean.parseBoolean(detalles_producto[1]);
     }
 

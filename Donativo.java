@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Clase Donativo Clase madre que le hereda a Alimentos, Dinero y Ropa
  * 
@@ -7,8 +9,8 @@
  */
 
 public class Donativo implements Envio, Entrega {
-    protected int zonaADejar;
-    protected int cantidad;
+    protected String zonaADejar;
+    protected String cantidad;
     protected int cantidad_productos = 0;
 
     /**
@@ -36,9 +38,9 @@ public class Donativo implements Envio, Entrega {
      * 
      * @param cantidad: int
      */
-    public Donativo(int cantidad, int zona) {
+    public Donativo(String cantidad, String zona) {
         this.cantidad = cantidad;
-        zonaADejar = zona;
+        this.zonaADejar = zona;
     }
 
     /**
@@ -46,43 +48,46 @@ public class Donativo implements Envio, Entrega {
      * 
      * @return cantidad: int
      */
-    public int getCantidad() {
+    public String getCantidad() {
         return cantidad;
     }
 
     /**
+     * Método que devuelve la cantidad del producto a donar.
      * 
      * @param cantidad
      */
-    public void setCantidad(int cantidad) {
+    public void setCantidad(String cantidad) {
         this.cantidad = cantidad;
     }
 
     /**
+     * Método que devuelve la zona en donde se deben dejar los proudctos.
      * 
      * @return
      */
-    public int getZonaADejar() {
+    public String getZonaADejar() {
         return zonaADejar;
     }
 
     /**
+     * Método que modifica el valor de la zona a dejar el producto.
      * 
      * @param zonaADejar
      */
-    public void setZonaADejar(int zonaADejar) {
+    public void setZonaADejar(String zonaADejar) {
         this.zonaADejar = zonaADejar;
     }
 
     /**
-     * 
+     * Método que altera el valor de la cantidad de los productos.
      */
     public void setCantidad_producto(int producto_recivido) {
         this.cantidad_productos += producto_recivido;
     }
 
     /**
-     * 
+     * Método que devuelve el valor de la cantidad de los productos
      */
     public int getCantidad_producto() {
         return this.cantidad_productos;
