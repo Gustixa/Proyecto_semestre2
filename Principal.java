@@ -83,7 +83,7 @@ public class Principal {
         Archivos donativos = new Archivos();
         String[] detalles_producto = new String[4];
         Donativo tipo_donativo;
-        if (nombre_archivo.equals("Alimentos") || nombre_archivo.equals("Ropa")) {
+        if (nombre_archivo.equals("Alimentos") || nombre_archivo.equals("Vestuario")) {
             int cantidad_productos = donativos.leer_CSV(nombre_archivo); // Retorna la cantidad de los productos
             // verificar si seleccion esta en rango
             int donativo_seleccion = vista.verificacion_seleccion_productos(cantidad_productos);
