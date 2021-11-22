@@ -31,15 +31,18 @@ public class Principal {
             switch (opcion) {
             case 1:
                 // Donativo de comida.
+                mensaje_de_carga("Procesando");
                 donacion("Alimentos");
 
                 break;
             case 2:
                 // Donativo de vestimenta.
+                mensaje_de_carga("Procesando");
                 donacion("Vestuario");
                 break;
             case 3:
                 // Donativo en efectivo.
+                mensaje_de_carga("Procesando");
                 donacion("Dinero");
                 break;
             default:
@@ -113,13 +116,13 @@ public class Principal {
     private static void mensaje_de_carga(String mensaje) throws IOException, InterruptedException {
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         System.out.println(mensaje + ".");
-        esperar(1000);
+        esperar(500);
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         System.out.println(mensaje + "..");
-        esperar(1000);
+        esperar(500);
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         System.out.println(mensaje + "...");
-        esperar(1000);
+        esperar(500);
     }
 
     /**
