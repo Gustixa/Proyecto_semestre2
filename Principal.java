@@ -22,7 +22,7 @@ public class Principal {
 
         byte opcion = 0;
         // Modificar el valor según sea la modificación futura.
-        mensaje_de_carga("Procesando");
+        mensaje_de_carga("Procesando", 500);
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         vista.bienvenida();
         do {
@@ -31,18 +31,18 @@ public class Principal {
             switch (opcion) {
             case 1:
                 // Donativo de comida.
-                mensaje_de_carga("Procesando");
+                mensaje_de_carga("Procesando", 500);
                 donacion("Alimentos");
 
                 break;
             case 2:
                 // Donativo de vestimenta.
-                mensaje_de_carga("Procesando");
+                mensaje_de_carga("Procesando", 500);
                 donacion("Vestuario");
                 break;
             case 3:
                 // Donativo en efectivo.
-                mensaje_de_carga("Procesando");
+                mensaje_de_carga("Procesando", 500);
                 donacion("Dinero");
                 break;
             default:
@@ -79,7 +79,7 @@ public class Principal {
      * @see donativo_detalle, sirve para poder obtener el producto puntual que se ha
      *      donado.
      */
-    private static void seleccion_producto(String nombre_archivo) {
+    private static void seleccion_producto(String nombre_archivo) throws IOException, InterruptedException {
         Archivos donativos = new Archivos();
         String[] detalles_producto = new String[4];
         Donativo tipo_donativo;
@@ -94,15 +94,28 @@ public class Principal {
             // Creacion del Objeto que se esta donando.
             if (detalles_producto[3].equals("Alimentos")) {
                 tipo_donativo = new Alimentos(detalles_producto);
+                tipo_donativo.setCantidad_producto(1);
+                int productos_recibidos = tipo_donativo.getCantidad_producto();
+                if (productos_recibidos == 20) {
+                    tipo_donativo.envio_producto();
+                    for (int i = 0; i < 3; i++) {
+                        mensaje_de_carga("Enviando", 400);
+                    }
+                    tipo_donativo.entrega_producto();
+                }
             } else if (detalles_producto[3].equals("Ropa")) {
                 tipo_donativo = new Ropa(detalles_producto);
+                tipo_donativo.setCantidad_producto(1);
+                int productos_recibidos = tipo_donativo.getCantidad_producto();
+                if (productos_recibidos == 20) {
+                    tipo_donativo.envio_producto();
+                    for (int i = 0; i < 3; i++) {
+                        mensaje_de_carga("Enviando", 400);
+                    }
+                    tipo_donativo.entrega_producto();
+                }
             }
-        } else if (nombre_archivo.equals("Dinero")) {
 
-        }
-
-        {
-            tipo_donativo = new Dinero(detalles_producto);
         }
     }
 
@@ -113,16 +126,16 @@ public class Principal {
      * @throws IOException
      * @throws InterruptedException
      */
-    private static void mensaje_de_carga(String mensaje) throws IOException, InterruptedException {
+    private static void mensaje_de_carga(String mensaje, int tiempo) throws IOException, InterruptedException {
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         System.out.println(mensaje + ".");
-        esperar(500);
+        esperar(tiempo);
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         System.out.println(mensaje + "..");
-        esperar(500);
+        esperar(tiempo);
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         System.out.println(mensaje + "...");
-        esperar(500);
+        esperar(tiempo);
     }
 
     /**

@@ -20,7 +20,6 @@ public class Alimentos extends Donativo {
     public Alimentos(String[] detalles_producto) {
         super(Integer.parseInt(detalles_producto[0]), Integer.parseInt(detalles_producto[2]));
         this.tipo = detalles_producto[1];
-
     }
 
     /**

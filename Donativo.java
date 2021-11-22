@@ -9,14 +9,15 @@
 public class Donativo implements Envio, Entrega {
     protected int zonaADejar;
     protected int cantidad;
+    protected int cantidad_productos = 0;
 
-       /**
+    /**
      * Implementación del método envio producto, de la interfaz Envio. Devuelve un
      * toString.
      */
     @Override
     public String envio_producto() {
-        String texto = "Estaremos esperando su producto";
+        String texto = "Se esta enviando el producto...";
         return texto;
     }
 
@@ -72,4 +73,19 @@ public class Donativo implements Envio, Entrega {
     public void setZonaADejar(int zonaADejar) {
         this.zonaADejar = zonaADejar;
     }
+
+    /**
+     * 
+     */
+    public void setCantidad_producto(int producto_recivido) {
+        this.cantidad_productos += producto_recivido;
+    }
+
+    /**
+     * 
+     */
+    public int getCantidad_producto() {
+        return this.cantidad_productos;
+    }
+
 }
