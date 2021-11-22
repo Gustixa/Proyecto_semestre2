@@ -122,7 +122,6 @@ public class Interaccion {
         } else if (nombre_archivo.equals("Dinero")) {
             System.out.println("PUEDE REALIZAR EL PAGO EN EL SIGUIENTE NUMERO DE CUENTA: 234-232-523");
         }
-
         return detalles;
     }
 
@@ -221,7 +220,7 @@ public class Interaccion {
                 opciones_rango = zonas_entrega();
             } else if (opciones.equals("Edades vestimenta")) {
                 opciones_rango = edades_vestimenta();
-
+            }
             try {
                 opcion = Byte.parseByte(JOptionPane.showInputDialog("Ingrese una de las opciones"));
                 if (opcion < 0 || opcion > opciones_rango) {
