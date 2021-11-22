@@ -31,18 +31,15 @@ public class Principal {
             switch (opcion) {
             case 1:
                 // Donativo de comida.
-                mensaje_de_carga("Procesando", 500);
                 donacion("Alimentos");
 
                 break;
             case 2:
                 // Donativo de vestimenta.
-                mensaje_de_carga("Procesando", 500);
                 donacion("Vestuario");
                 break;
             case 3:
                 // Donativo en efectivo.
-                mensaje_de_carga("Procesando", 500);
                 donacion("Dinero");
                 break;
             default:
@@ -115,7 +112,9 @@ public class Principal {
                     tipo_donativo.entrega_producto();
                 }
             }
-
+        } else {
+            detalles_producto = vista.detalles_donativo("None", nombre_archivo);
+            System.out.println(detalles_producto[0]);
         }
     }
 

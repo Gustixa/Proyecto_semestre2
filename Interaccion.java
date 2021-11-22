@@ -58,7 +58,7 @@ public class Interaccion {
      */
     private int menu_inicio() {
         String[] opciones_principales = { "Donativo de comida.", "Donativo de vestimenta.", "Donativo monetario.",
-                "Otro donativo", "Salir" };
+                "Salir" };
         System.out.println("\nSELECCIONE UNA DE LAS OPCIONES DEL MENU\n");
         for (int i = 0; i < opciones_principales.length; i++) {
             System.out.println((i + 1) + "." + opciones_principales[i]);
@@ -122,7 +122,7 @@ public class Interaccion {
             byte edades = seleccion_opciones_menu("Edades vestimenta");
             detalles[4] = edades_rango[edades - 1];
         } else if (nombre_archivo.equals("Dinero")) {
-            System.out.println("PUEDE REALIZAR EL PAGO EN EL SIGUIENTE NUMERO DE CUENTA: 234-232-523");
+            detalles[0] = "PUEDE REALIZAR EL PAGO EN EL SIGUIENTE NUMERO DE CUENTA: 234-232-523";
         }
         return detalles;
     }
