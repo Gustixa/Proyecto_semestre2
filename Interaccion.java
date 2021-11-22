@@ -72,7 +72,7 @@ public class Interaccion {
      */
     private int zonas_entrega() {
         String[] zonas = { "1", "2", "6", "10", "15" };
-        System.out.println("\nSELECCIONE UNA DE LAS OPCIONES\n");
+        System.out.println("\nESTAS SON LAS ZONAS DONDE RECIBIMOS PRODUCTOS\n");
         for (int i = 0; i < zonas.length; i++) {
             System.out.println((i + 1) + "." + zonas[i]);
         }
@@ -85,7 +85,7 @@ public class Interaccion {
      */
     private int edades_vestimenta() {
         String[] edades_rango = { "0-5", "6-10", "11-15", "20-25", "mayor a 25" };
-        System.out.println("\nSELECCIONE UNA DE LAS OPCIONES\n");
+        System.out.println("\nESCOJA UN RANGO DE EDAD PARA LA ROPA A DONAR\n");
         for (int i = 0; i < edades_rango.length; i++) {
             System.out.println((i + 1) + "." + edades_rango[i]);
         }
