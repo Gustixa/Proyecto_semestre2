@@ -16,8 +16,8 @@ public class Donativo implements Envio, Entrega {
      */
     @Override
     public String envio_producto() {
-        // TODO Auto-generated method stub
-        return null;
+        String texto = "Estaremos esperando su producto";
+        return texto;
     }
 
     /**
@@ -26,8 +26,8 @@ public class Donativo implements Envio, Entrega {
      */
     @Override
     public String entrega_producto() {
-        // TODO Auto-generated method stub
-        return null;
+        String texto = "Producto entregado!";
+        return texto;
     }
 
     /**

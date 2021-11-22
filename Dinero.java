@@ -16,9 +16,9 @@ public class Dinero extends Donativo {
      * @param cantidad:  int
      * @param efectivo:  boolean
      */
-    public Dinero(int cantidad, boolean efectivo, int zona) {
-        super(cantidad, zona);
-        this.efectivo = efectivo;
+    public Dinero(String[] detalles_producto) {
+        super(Integer.parseInt(detalles_producto[0]), Integer.parseInt(detalles_producto[2]));
+        this.efectivo = Boolean.parseBoolean(detalles_producto[1]);
     }
 
     /**

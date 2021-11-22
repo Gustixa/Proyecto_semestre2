@@ -40,7 +40,7 @@ public class Principal {
                 break;
             case 3:
                 // Donativo en efectivo.
-                donacion("dinero");
+                donacion("Dinero");
                 break;
             default:
                 // Salir del menu principal.
@@ -62,6 +62,8 @@ public class Principal {
         if (nombre_archivo.equals("Alimentos")) {
             seleccion_producto(nombre_archivo);
         } else if (nombre_archivo.equals("Vestuario")) {
+            seleccion_producto(nombre_archivo);
+        } else if (nombre_archivo.equals("Dinero")){
             seleccion_producto(nombre_archivo);
         }
     }
@@ -89,7 +91,9 @@ public class Principal {
         if (detalles_producto[3].equals("Alimentos")) {
             tipo_donativo = new Alimentos(detalles_producto);
         } else if (detalles_producto[3].equals("Ropa")) {
-
+            tipo_donativo = new Ropa(detalles_producto);
+        } else if (detalles_producto[3].equals("Dinero")){
+            tipo_donativo = new Dinero(detalles_producto);
         }
     }
 

@@ -71,7 +71,7 @@ public class Interaccion {
      * cuenta el producto y crear un objeto del mismo tipo.
      */
     public String[] detalles_donativo(String producto, String nombre_archivo) {
-        String[] detalles = new String[4];
+        String[] detalles = new String[5];
 
         if (nombre_archivo.equals("Alimentos")) {
             detalles[0] = verificacion_datos_especificos(
@@ -99,9 +99,81 @@ public class Interaccion {
         } else if (nombre_archivo.equals("Vestuario")) {
             detalles[0] = verificacion_datos_especificos("Ingrese la cantidad de " + producto + " que va a donar de ",
                     "Entero");
+            detalles[1] = producto;
+            boolean paso = false;
+            while (paso == false){
+                try {
+                    System.out.println("Recibimos en las zonas 1, 2, 6, 10 y 15");
+                    String opcionString = JOptionPane.showInputDialog("Ingrese a que zona va a ir a dejar la donacion");
+                    int opcion = Byte.parseByte(opcionString);
+                    if (opcion == 1 || opcion == 2 || opcion == 6 || opcion == 10 || opcion == 15){
+                        paso = true;
+                        detalles[2] = opcionString;
+                    }
+                    else {
+                        System.out.println("Ingrese un valor de los proveidos anteriormente");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Ingrese un valor numerico");
+                }
+            }
             detalles[3] = "Ropa";
-        } else if (nombre_archivo.equals("")){
-
+            paso = false;
+            while (paso == false){
+                try {
+                    String opcionString = JOptionPane.showInputDialog("¿Para que edad es la ropa a donar?");
+                    int opcion = Byte.parseByte(opcionString);
+                    if (opcion > 0 && opcion < 25){
+                        paso = true;
+                        detalles[4] = opcionString;
+                    }
+                    else {
+                        System.out.println("Ingrese un valor entre 0 a 25");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Ingrese un valor numerico");
+                }
+            }
+        } else if (nombre_archivo.equals("Dinero")){
+            detalles[0] = verificacion_datos_especificos("Ingrese la cantidad de " + producto + " que va a donar de ",
+            "Entero");
+            boolean paso = false;
+            while (paso == false){
+                try {
+                    System.out.println("¿Su pago va a ser en efectivo?");
+                    String opcionString = JOptionPane.showInputDialog("Ingrese 'si' si su pago sera en efectivo y 'no si no los sera'");
+                    if (opcionString.equalsIgnoreCase("si")){
+                        paso = true;
+                        detalles[1] = "true";
+                    } else if (opcionString.equalsIgnoreCase("no")){
+                        paso = true;
+                        detalles[1] = "false";
+                    }
+                    else {
+                        System.out.println("Ingrese solo si o no, por favor");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Ingrese texto en vez de numeros");
+                }
+            }
+            paso = false;
+            while (paso == false){
+                try {
+                    System.out.println("Recibimos en las zonas 1, 2, 6, 10 y 15");
+                    String opcionString = JOptionPane.showInputDialog("Ingrese a que zona va a ir a dejar la donacion");
+                    int opcion = Byte.parseByte(opcionString);
+                    if (opcion == 1 || opcion == 2 || opcion == 6 || opcion == 10 || opcion == 15){
+                        paso = true;
+                        detalles[2] = opcionString;
+                    }
+                    else {
+                        System.out.println("Ingrese un valor de los proveidos anteriormente");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Ingrese un valor numerico");
+                }
+            }
+            detalles[3] = "Dinero";
         }
 
         return detalles;

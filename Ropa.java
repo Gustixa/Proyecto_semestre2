@@ -22,10 +22,10 @@ public class Ropa extends Donativo {
      *                   camisa, etc)
      * @param paraEdad   nos indica para que edad es la prenda donada
      */
-    public Ropa(int cantidad, String tipoPrenda, int paraEdad, int zona) {
-        super(cantidad, zona);
-        this.tipoPrenda = tipoPrenda;
-        this.paraEdad = paraEdad;
+    public Ropa(String[] detalles_producto) {
+        super(Integer.parseInt(detalles_producto[0]), Integer.parseInt(detalles_producto[2]));
+        this.tipoPrenda = detalles_producto[1];
+        this.paraEdad = Integer.parseInt(detalles_producto[4]);
     }
 
     /**
