@@ -63,7 +63,7 @@ public class Principal {
             seleccion_producto(nombre_archivo);
         } else if (nombre_archivo.equals("Vestuario")) {
             seleccion_producto(nombre_archivo);
-        } else if (nombre_archivo.equals("Dinero")){
+        } else if (nombre_archivo.equals("Dinero")) {
             seleccion_producto(nombre_archivo);
         }
     }
@@ -80,19 +80,25 @@ public class Principal {
         Archivos donativos = new Archivos();
         String[] detalles_producto = new String[4];
         Donativo tipo_donativo;
+        if (nombre_archivo.equals("Alimentos") || nombre_archivo.equals("Ropa")) {
+            int cantidad_productos = donativos.leer_CSV(nombre_archivo); // Retorna la cantidad de los productos
+            // verificar si seleccion esta en rango
+            int donativo_seleccion = vista.verificacion_seleccion_productos(cantidad_productos);
+            String producto = donativos.donativo_detalle(donativo_seleccion, "producto", nombre_archivo);// obtener
+                                                                                                         // producto
+            // Obtener los detalles del producto, en la comida, seria la cantidad.
+            detalles_producto = vista.detalles_donativo(producto, nombre_archivo);
+            // Creacion del Objeto que se esta donando.
+            if (detalles_producto[3].equals("Alimentos")) {
+                tipo_donativo = new Alimentos(detalles_producto);
+            } else if (detalles_producto[3].equals("Ropa")) {
+                tipo_donativo = new Ropa(detalles_producto);
+            }
+        } else if (nombre_archivo.equals("Dinero")) {
 
-        int cantidad_productos = donativos.leer_CSV(nombre_archivo); // Retorna la cantidad de los productos
-        // verificar si seleccion esta en rango
-        int donativo_seleccion = vista.verificacion_seleccion_productos(cantidad_productos);
-        String producto = donativos.donativo_detalle(donativo_seleccion, "producto", nombre_archivo);// obtener producto
-        // Obtener los detalles del producto, en la comida, seria la cantidad.
-        detalles_producto = vista.detalles_donativo(producto, nombre_archivo);
-        // Creacion del Objeto que se esta donando.
-        if (detalles_producto[3].equals("Alimentos")) {
-            tipo_donativo = new Alimentos(detalles_producto);
-        } else if (detalles_producto[3].equals("Ropa")) {
-            tipo_donativo = new Ropa(detalles_producto);
-        } else if (detalles_producto[3].equals("Dinero")){
+        }
+
+        {
             tipo_donativo = new Dinero(detalles_producto);
         }
     }
